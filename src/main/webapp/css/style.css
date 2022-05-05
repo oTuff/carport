@@ -1,5 +1,9 @@
 /* CSS stylesheet  for application */
 
+body{
+    font-family: Verdana;
+}
+
 table {
     border-collapse: collapse;
     border: 1px solid silver;
