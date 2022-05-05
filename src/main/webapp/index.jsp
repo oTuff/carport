@@ -4,26 +4,29 @@
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
 <t:pagetemplate>
-    <jsp:attribute name="header">
-         Welcome to the frontpage
-    </jsp:attribute>
-
     <jsp:attribute name="footer">
         Welcome to the frontpage
     </jsp:attribute>
 
     <jsp:body>
+        <form action="/">
+            <label for="carportWidth">Carport bredde:</label>
+            <input type="text" class="form-control" placeholder="Vælg bredde" id="carportWidth" placeholder="">
+            <label for="carportLength">Carport længde:</label>
+            <input type="text" class="form-control" placeholder="Vælg længde" id="carportLength" placeholder="">
 
-        <p>Startcode for 2nd semester </p>
+            <br>
+
 
         <c:if test="${sessionScope.user != null}">
-            <p>You are logged in with the role of "${sessionScope.user.role}".</p>
+            <input type="submit" class="form-control" value="Godkend">
         </c:if>
 
         <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="login.jsp">Login</a></p>
+            <input type="submit" class="btn btn-primary" value="Log ind/opret bruger">
         </c:if>
+
+        </form>
 
     </jsp:body>
 
