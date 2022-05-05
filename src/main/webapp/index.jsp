@@ -11,10 +11,45 @@
     <jsp:body>
         <form action="/">
             <label for="carportWidth">Carport bredde:</label>
-            <input type="text" class="form-control" placeholder="Vælg bredde" id="carportWidth" placeholder="">
-            <label for="carportLength">Carport længde:</label>
-            <input type="text" class="form-control" placeholder="Vælg længde" id="carportLength" placeholder="">
+            <select class="form-control" id="carportWidth" name="carportWidth" title="carportWidth">
+                <option selected="selected" value="">Vælg bredde</option>
+                <option value="240 cm">240 cm</option>
+                <option value="270 cm">270 cm</option>
+                <option value="300 cm">300 cm</option>
+                <option value="330 cm">330 cm</option>
+                <option value="360 cm">360 cm</option>
+                <option value="390 cm">390 cm</option>
+                <option value="420 cm">420 cm</option>
+                <option value="450 cm">450 cm</option>
+                <option value="480 cm">480 cm</option>
+                <option value="510 cm">510 cm</option>
+                <option value="540 cm">540 cm</option>
+                <option value="570 cm">570 cm</option>
+                <option value="600 cm">600 cm</option>
+            </select>
 
+            <label for="carportLength">Carport længde:</label>
+            <select class="form-control" id="carportLength" name="carportLength" title="Carport længde"><option selected="selected" value="">Vælg længde</option>
+                <option value="240 cm">240 cm</option>
+                <option value="270 cm">270 cm</option>
+                <option value="300 cm">300 cm</option>
+                <option value="330 cm">330 cm</option>
+                <option value="360 cm">360 cm</option>
+                <option value="390 cm">390 cm</option>
+                <option value="420 cm">420 cm</option>
+                <option value="450 cm">450 cm</option>
+                <option value="480 cm">480 cm</option>
+                <option value="510 cm">510 cm</option>
+                <option value="540 cm">540 cm</option>
+                <option value="570 cm">570 cm</option>
+                <option value="600 cm">600 cm</option>
+                <option value="630 cm">630 cm</option>
+                <option value="660 cm">660 cm</option>
+                <option value="690 cm">690 cm</option>
+                <option value="720 cm">720 cm</option>
+                <option value="750 cm">750 cm</option>
+                <option value="780 cm">780 cm</option>
+            </select>
             <br>
 
 
