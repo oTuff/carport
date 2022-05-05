@@ -3,32 +3,44 @@ package dat.startcode.model.entities;
 import java.util.Objects;
 
 public class User {
-    private String username;
+    private String email;
+    private String fullName;
     private String password;
+    private int balance;
+    private String address;
+    private int zipNr;
     private String role;
 
-    public User(String username, String password, String role) {
-        this.username = username;
+    public User(String email, String fullName, String password, int balance, String address, int zipNr, String role) {
+        this.email = email;
+        this.fullName = fullName;
+        this.password = password;
+        this.balance = balance;
+        this.address = address;
+        this.zipNr = zipNr;
+        this.role = role;
+    }
+
+    public User(String email, String password, String role) {
+        this.email = email;
         this.password = password;
         this.role = role;
     }
 
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "brugerNavn='" + username + '\'' +
-                ", kodeord='" + password + '\'' +
-                ", rolle='" + role + '\'' +
-                '}';
+    public String getEmail() {
+        return email;
     }
 
-    public String getUsername() {
-        return username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getPassword() {
@@ -37,6 +49,30 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getZipNr() {
+        return zipNr;
+    }
+
+    public void setZipNr(int zipNr) {
+        this.zipNr = zipNr;
     }
 
     public String getRole() {
@@ -52,12 +88,24 @@ public class User {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return getUsername().equals(user.getUsername()) && getPassword().equals(user.getPassword()) &&
-                getRole().equals(user.getRole());
+        return getBalance() == user.getBalance() && getZipNr() == user.getZipNr() && Objects.equals(getEmail(), user.getEmail()) && Objects.equals(getFullName(), user.getFullName()) && Objects.equals(getPassword(), user.getPassword()) && Objects.equals(getAddress(), user.getAddress()) && Objects.equals(getRole(), user.getRole());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUsername(), getPassword(), getRole());
+        return Objects.hash(getEmail(), getFullName(), getPassword(), getBalance(), getAddress(), getZipNr(), getRole());
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", password='" + password + '\'' +
+                ", balance=" + balance +
+                ", address='" + address + '\'' +
+                ", zipNr=" + zipNr +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
