@@ -53,30 +53,37 @@
             </select>
 
             <br>
+            <input type="checkbox" id="skurCheckbox" onclick="hideSkurForm()">
+            <label for="skurCheckbox">Vil du have et skur?</label>
+            <br>
 
-            <input type="checkbox" id="skurCheckbox" onclick="skurCheckbox()" value="Vil du have et skur?">
+            <div id="skur" style="display: none;">
+                <label for="shedWidth">Skur bredde</label>
+                <select class="form-control" id="shedWidth" name="shedWidth" title="Skur bredde">
+                    <option selected="selected" value="">Vælg bredde</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+
+                <label for="shedLength">Skur længde</label>
+                <select class="form-control" id="shedLength" name="shedLength" title="Skur længde">
+                    <option selected="selected" value="">Vælg længde</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </div>
 
             <script>
-                function skurCheckbox(){
-                    if(document.getElementById("skurCheckbox").checked){
-                        alert("f");
+                function hideSkurForm() {
+                    var checkBox = document.getElementById("skurCheckbox");
+                    var text = document.getElementById("skur");
+                    if (checkBox.checked == true){
+                        text.style.display = "block";
+                    } else {
+                        text.style.display = "none";
                     }
                 }
             </script>
-            <label for="shedWidth">Skur bredde</label>
-            <select class="form-control" id="shedWidth" name="shedWidth" title="Skur bredde">
-                <option selected="selected" value="">Vælg bredde</option>
-                <option value=""></option>
-                <option value=""></option>
-            </select>
-            
-            <label for="shedLength">Skur længde</label>
-            <select class="form-control" id="shedLength" name="shedLength" title="Skur længde">
-                <option selected="selected" value="">Vælg længde</option>
-                <option value=""></option>
-                <option value=""></option>
-            </select>
-
             <br>
 
             <c:if test="${sessionScope.user != null}">
