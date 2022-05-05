@@ -86,7 +86,6 @@ CREATE TABLE IF NOT EXISTS `carport`.`partslist_order`
 )
     ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `carport`.`product`
 -- -----------------------------------------------------
@@ -129,6 +128,7 @@ CREATE TABLE IF NOT EXISTS `carport`.`partslist_line`
 
 )
     ENGINE = InnoDB;
+
 UNLOCK TABLES;
 CREATE DATABASE IF NOT EXISTS `carport_test`;
 USE `carport_test`;
@@ -137,6 +137,7 @@ CREATE TABLE carport_test.zip LIKE carport.zip;
 CREATE TABLE carport_test.partslist_line LIKE carport.partslist_line;
 CREATE TABLE carport_test.partslist_order LIKE carport.partslist_order;
 CREATE TABLE carport_test.product LIKE carport.product;
+
 
 
 SET SQL_MODE = @OLD_SQL_MODE;
