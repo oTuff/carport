@@ -129,6 +129,11 @@ CREATE TABLE IF NOT EXISTS `carport`.`partslist_line`
 )
     ENGINE = InnoDB;
 
+INSERT INTO `carport`.`user` (`email`, `full_name`, `password`, `balance`, `address`, `zip_nr`, `role`) VALUES ('a@a.dk', 'Adminbruger', '1234', '100000', 'Nørgaardsvej 30', '2800', 'admin');
+INSERT INTO `carport`.`user` (`email`, `full_name`, `password`, `balance`, `address`, `zip_nr`, `role`) VALUES ('b@b.dk', 'Testbruger', '1234', '100000', 'Nørgaardsvej 30', '2800', 'user');
+
+
+
 UNLOCK TABLES;
 CREATE DATABASE IF NOT EXISTS `carport_test`;
 USE `carport_test`;
