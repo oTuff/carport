@@ -54,7 +54,15 @@
 
             <br>
 
-            <input type="checkbox" value="Vil du have et skur?">
+            <input type="checkbox" id="skurCheckbox" onclick="skurCheckbox()" value="Vil du have et skur?">
+
+            <script>
+                function skurCheckbox(){
+                    if(document.getElementById("skurCheckbox").checked){
+                        alert("f");
+                    }
+                }
+            </script>
             <label for="shedWidth">Skur bredde</label>
             <select class="form-control" id="shedWidth" name="shedWidth" title="Skur bredde">
                 <option selected="selected" value="">Vælg bredde</option>
