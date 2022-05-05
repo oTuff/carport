@@ -1,7 +1,34 @@
 @startuml
+object product{
+name
+price
+}
 
-object partslist
-object order
-object user
+object partslist{
+length
+price
+quantity
+unit
+description
+}
+
+object order{
+width
+length
+price
+}
+
+object user{
+email
+password
+name
+address
+role
+balance
+}
+
+order "*" o- "1" user
+partslist "1" -o "1" order
+product "*" -o "1" partslist
 
 @enduml

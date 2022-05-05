@@ -1,37 +1,27 @@
 @startuml
-'https://plantuml.com/activity-diagram-beta
-
+|kunde|
 start
-:ClickServlet.handleRequest();
-:new page;
-if (Page.onSecurityCheck) then (true)
-  :Page.onInit();
-  if (isForward?) then (no)
-    :Process controls;
-    if (continue processing?) then (no)
-      stop
-    endif
+:gå til website;
+|#AntiqueWhite|website|
+:vælg "quick-byg" og mål på carport;
+:udfyld kontakt formular og send forespørgsel;
+|martin|
+:modtager email med forespørgsel;
+|program|
+:indtast kundens carport data MANUELT!;
+:visuel repræsentation af carport]
+|kunde|
+:modtager billeder og kort beskrivelse;
+:betaling;
+|program|
+:stykliste]
+fork
+|kunde|
+:modtager stykliste;
 
-    if (isPost?) then (yes)
-      :Page.onPost();
-    else (no)
-      :Page.onGet();
-    endif
-    :Page.onRender();
-  endif
-else (false)
-endif
-
-if (do redirect?) then (yes)
-  :redirect process;
-else
-  if (do forward?) then (yes)
-    :Forward request;
-  else (no)
-    :Render page template;
-  endif
-endif
-
-stop
-
+|kunde|
+|martin|
+:gem ordre i database;
+:send kvittering;
+fork
 @enduml
