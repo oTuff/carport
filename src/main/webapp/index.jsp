@@ -29,7 +29,8 @@
             </select>
 
             <label for="carportLength">Carport længde:</label>
-            <select class="form-control" id="carportLength" name="carportLength" title="Carport længde"><option selected="selected" value="">Vælg længde</option>
+            <select class="form-control" id="carportLength" name="carportLength" title="Carport længde">
+                <option selected="selected" value="">Vælg længde</option>
                 <option value="240 cm">240 cm</option>
                 <option value="270 cm">270 cm</option>
                 <option value="300 cm">300 cm</option>
@@ -50,16 +51,33 @@
                 <option value="750 cm">750 cm</option>
                 <option value="780 cm">780 cm</option>
             </select>
+
             <br>
 
+            <input type="checkbox" value="Vil du have et skur?">
+            <label for="shedWidth">Skur bredde</label>
+            <select class="form-control" id="shedWidth" name="shedWidth" title="Skur bredde">
+                <option selected="selected" value="">Vælg bredde</option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+            
+            <label for="shedLength">Skur længde</label>
+            <select class="form-control" id="shedLength" name="shedLength" title="Skur længde">
+                <option selected="selected" value="">Vælg længde</option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
 
-        <c:if test="${sessionScope.user != null}">
-            <input type="submit" class="form-control" value="Godkend">
-        </c:if>
+            <br>
 
-        <c:if test="${sessionScope.user == null}">
-            <input type="submit" class="btn btn-primary" value="Log ind/opret bruger">
-        </c:if>
+            <c:if test="${sessionScope.user != null}">
+                <input type="submit" class="form-control" value="Godkend">
+            </c:if>
+
+            <c:if test="${sessionScope.user == null}">
+                <input type="submit" class="btn btn-primary" value="Log ind/opret bruger">
+            </c:if>
 
         </form>
 
