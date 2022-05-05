@@ -16,15 +16,6 @@ public class Order {
         this.partsListLines = new ArrayList<>();
     }
 
-    public int calcPrice(){
-        int price=this.orderPrice;
-        for ( PartsListLine l: partsListLines) {
-           price=price+ l.getTotalPrice();
-        }
-        this.orderPrice=price;
-        return price;
-    }
-
     public User getUser() {
         return user;
     }
