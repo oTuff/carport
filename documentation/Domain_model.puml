@@ -1,0 +1,7 @@
+@startuml
+
+object partslist
+object order
+object user
+
+@enduml
