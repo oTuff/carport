@@ -51,16 +51,8 @@
     <hr/>
     <div class="row mt-4">
         <div class="col">
-            <p><strong>Kontakt</strong></p>
-            <p>Johannes Fog A/S
-                <br>
-                Firskovvej 20
-                <br>
-                2800 Lyngby
-                <br>
-                45 87 10 01
-                <br>
-                info@johannesfog.dk</p>
+            Nørgaardsvej 30<br/>
+            2800 Lyngby
         </div>
         <div class="col">
             <jsp:invoke fragment="footer"/><br/>
