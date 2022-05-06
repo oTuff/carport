@@ -55,6 +55,7 @@
                 <option value="780 cm">780 cm</option>
             </select>
 
+            <!--
             <label for="roof">Tag:</label>
             <select class="form-control" id="roof" name="roof" title="Tagtype/farve">
                 <option selected="selected" value="">Vælg tagtype/farve</option>
@@ -87,6 +88,8 @@
             </select>
             
             <br>
+
+        -->
             <input type="checkbox" id="skurCheckbox" onclick="hideSkurForm()">
             <label for="skurCheckbox">Vil du have et skur?</label>
             <br>
