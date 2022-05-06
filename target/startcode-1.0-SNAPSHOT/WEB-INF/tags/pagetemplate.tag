@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <c:if test="${sessionScope.user != null }">
-                        <a class="nav-item nav-link"><span class="sr-only">${sessionScope.user.email}</span></a>
+                        <a class="nav-item nav-link">${sessionScope.user.email}</a>
                     </c:if>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Hjem</a>
                     <c:if test="${sessionScope.user == null }">
@@ -77,9 +77,7 @@
             2. semester forår 2022
         </div>
     </div>
-
 </div>
-
 </div>
 
 <!-- Bootstrap Bundle with Popper -->
