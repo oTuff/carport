@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "login", urlPatterns = {"/login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "ServletLogin", urlPatterns = {"/servletlogin"})
+public class ServletLogin extends HttpServlet {
     private ConnectionPool connectionPool;
 
     @Override

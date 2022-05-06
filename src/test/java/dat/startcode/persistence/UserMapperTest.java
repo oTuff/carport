@@ -68,15 +68,15 @@ class UserMapperTest {
     @Test
     void invalidUserNameLogin() throws DatabaseException {
         assertThrows(DatabaseException.class, () -> userMapper.login("bob", "1234"));
-    }
-
-    @Test
-    void createUser() throws DatabaseException {
-        User newUser = userMapper.createUser("jill", "1234", "user");
-        User logInUser = userMapper.login("jill", "1234");
-        User expectedUser = new User("jill", "1234", "user");
-        assertEquals(expectedUser, newUser);
-        assertEquals(expectedUser, logInUser);
+//    }
+//
+//    @Test
+//    void createUser() throws DatabaseException {
+//        User newUser = userMapper.createUser("jill", "1234", "user");
+//        User logInUser = userMapper.login("jill", "1234");
+//        User expectedUser = new User("jill", "1234", "user");
+//        assertEquals(expectedUser, newUser);
+//        assertEquals(expectedUser, logInUser);
 
     }
 }
