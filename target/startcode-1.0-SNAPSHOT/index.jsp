@@ -10,6 +10,9 @@
 
     <jsp:body>
         <form action="/">
+            <div class="w3-border mx-auto" style="width:50%;">
+                <div class="w3-green text-center" style="height:24px;width:33%;">1/3</div>
+            </div>
             <label for="carportWidth">Carport bredde:</label>
             <select class="form-control" id="carportWidth" name="carportWidth" title="carportWidth">
                 <option selected="selected" value="">Vælg bredde</option>
@@ -152,11 +155,11 @@
             <br>
 
             <c:if test="${sessionScope.user != null}">
-                <input type="submit" class="form-control" value="Godkend">
+                <input type="submit" class="btn btn-primary" value="Næste" style="width:25%; font-weight: bold;">
             </c:if>
 
             <c:if test="${sessionScope.user == null}">
-                <input type="submit" class="btn btn-primary" value="Log ind/opret bruger">
+                <input type="submit" class="btn btn-primary" value="Næste" style="width:25%; font-weight: bold;">
             </c:if>
 
         </form>
