@@ -17,12 +17,13 @@
 
         <h3>You can log in here</h3>
 
-        <form action="login" method="post">
+        <form action="servletlogin" method="post">
             <label for="username">Username: </label>
             <input type="text" id="username" name="username"/>
             <label for="password">Password: </label>
             <input type="password" id="password" name="password"/>
-            <input type="submit"  value="Log in"/>
+            <input type="submit"  value="Log ind"/>
+            <a href="createuser.jsp" class="createUser">Opret bruger</a>
         </form>
 
     </jsp:body>
