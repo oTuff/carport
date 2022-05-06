@@ -34,7 +34,7 @@
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
                     </c:if>
                     <c:if test="${sessionScope.user != null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">Log out</a>
                     </c:if>
                 </div>
             </div>
@@ -51,8 +51,16 @@
     <hr/>
     <div class="row mt-4">
         <div class="col">
-            Nørgaardsvej 30<br/>
-            2800 Lyngby
+            <p><strong>Kontakt</strong></p>
+            <p>Johannes Fog A/S
+                <br>
+                Firskovvej 20
+                <br>
+                2800 Lyngby
+                <br>
+                45 87 10 01
+                <br>
+                info@johannesfog.dk</p>
         </div>
         <div class="col">
             <jsp:invoke fragment="footer"/><br/>

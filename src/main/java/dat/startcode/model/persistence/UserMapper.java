@@ -4,6 +4,7 @@ import dat.startcode.model.entities.User;
 import dat.startcode.model.exceptions.DatabaseException;
 
 import java.sql.*;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,15 +42,21 @@ public class UserMapper implements IUserMapper {
     }
 
     @Override
-    public User createUser(String email, String password, String role) throws DatabaseException {
+    public User createUser(String email, String fullName, String password, String address, int zipNr, String role) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
         User user;
-        String sql = "insert into user (email, password, role) values (?,?,?)";
+        Random random = new Random();
+        int randomNumberBalance = random.nextInt(100000);
+        String sql = "insert into user (email, full_name, password, balance, address, zip_nr, role) values (?,?,?,?,?,?,?)";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setString(1, email);
-                ps.setString(2, password);
-                ps.setString(3, role);
+                ps.setString(2, fullName);
+                ps.setString(3, password);
+                ps.setInt(4, randomNumberBalance);
+                ps.setString(5, address);
+                ps.setInt(6, zipNr);
+                ps.setString(7, role);
                 int rowsAffected = ps.executeUpdate();
                 if (rowsAffected == 1) {
                     user = new User(email, password, role);
