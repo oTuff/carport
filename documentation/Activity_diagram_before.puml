@@ -1,0 +1,27 @@
+@startuml
+|kunde|
+start
+:gå til website;
+|#AntiqueWhite|website|
+:vælg "quick-byg" og mål på carport;
+:udfyld kontakt formular og send forespørgsel;
+|martin|
+:modtager email med forespørgsel;
+|program|
+:indtast kundens carport data MANUELT!;
+:visuel repræsentation af carport]
+|kunde|
+:modtager billeder og kort beskrivelse;
+:betaling;
+|program|
+:stykliste]
+fork
+|kunde|
+:modtager stykliste;
+
+|kunde|
+|martin|
+:gem ordre i database;
+:send kvittering;
+fork
+@enduml
