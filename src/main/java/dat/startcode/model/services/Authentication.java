@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 
 public class Authentication {
     public static boolean isRoleAllowed(String role, HttpServletRequest request) {
-        // Todo: extract user object from session scope and check role
+        if(!(request.getSession().getAttribute(role) ==null)){
+            return request.getSession().getAttribute(role).equals(role);
+        }
 
         return true;
     }
