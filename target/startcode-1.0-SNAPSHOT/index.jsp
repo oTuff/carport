@@ -4,12 +4,8 @@
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
 <t:pagetemplate>
-    <jsp:attribute name="footer">
-        Welcome to the frontpage
-    </jsp:attribute>
-
     <jsp:body>
-        <form action="/">
+        <form action="">
             <div class="w3-border mx-auto" style="width:50%;">
                 <div class="w3-green text-center" style="height:24px;width:33%;">1/3</div>
             </div>
