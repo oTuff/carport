@@ -25,7 +25,7 @@ public class PartsListLine {
         this.totalPrice = calcPrice();
     }
 
-    public int calcPrice() {
+    public int calcPrice() { // move to calculator!
         int price = totalPrice;
         if (getLength() == 0) {
             price = product.getPrice() * getQuantity();
