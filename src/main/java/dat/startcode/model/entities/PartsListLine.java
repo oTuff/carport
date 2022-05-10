@@ -16,7 +16,7 @@ public class PartsListLine {
         this.totalPrice = calcPrice();
     }
 
-    public PartsListLine(Product product, int length, int quantity, String unit, String description, int totalPrice) {
+    public PartsListLine(Product product, int length, int quantity, String unit, String description,) {
         this.product = product;
         Length = length;
         this.quantity = quantity;
