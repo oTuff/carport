@@ -78,7 +78,7 @@ public class Calculator {
         }
 
         //skruer mv.
-        PartsListLine p13 = new PartsListLine(getProduct(7), 0, tagQuant / 4, "Skruer til tagplader");
+        PartsListLine p13 = new PartsListLine(getProduct(7), 0, (int) Math.ceil(tagQuant / 4), "Skruer til tagplader");
         partsList.add(p13);
         PartsListLine p14 = new PartsListLine(getProduct(8), 0, 2, "Til vindkryds på spær");
         partsList.add(p14);
@@ -88,11 +88,11 @@ public class Calculator {
         partsList.add(p16);
         PartsListLine p17 = new PartsListLine(getProduct(11), 0, 1, "Til montering af stern&vandbrædt");
         partsList.add(p17);
-        PartsListLine p18 = new PartsListLine(getProduct(12), 0, spærQuantity / 5, "Til montering af universalbeslag + hulbånd");
+        PartsListLine p18 = new PartsListLine(getProduct(12), 0, (int) Math.ceil(spærQuantity / 5), "Til montering af universalbeslag + hulbånd");
         partsList.add(p18);
-        PartsListLine p19 = new PartsListLine(getProduct(13), 0, stolpeQuantity * 3, "Til montering af rem på stolper");
+        PartsListLine p19 = new PartsListLine(getProduct(13), 0, (int) Math.ceil(stolpeQuantity * 3), "Til montering af rem på stolper");
         partsList.add(p19);
-        PartsListLine p20 = new PartsListLine(getProduct(14), 0, stolpeQuantity * 2, "Til montering af rem på stolper");
+        PartsListLine p20 = new PartsListLine(getProduct(14), 0, (int) Math.ceil(stolpeQuantity * 2), "Til montering af rem på stolper");
         partsList.add(p20);
         PartsListLine p21 = new PartsListLine(getProduct(15), 0, 2, "Til montering af yderste beklæding");
         partsList.add(p21);
