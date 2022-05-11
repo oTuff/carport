@@ -1,5 +1,6 @@
 package dat.startcode.model.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 public class User {
@@ -10,6 +11,8 @@ public class User {
     private String address;
     private int zipNr;
     private String role;
+
+    private List<User> userList;
 
     public User(String email, String fullName, String password, int balance, String address, int zipNr, String role) {
         this.email = email;

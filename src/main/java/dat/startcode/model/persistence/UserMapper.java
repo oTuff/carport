@@ -4,6 +4,8 @@ import dat.startcode.model.entities.User;
 import dat.startcode.model.exceptions.DatabaseException;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -68,5 +70,34 @@ public class UserMapper implements IUserMapper {
             throw new DatabaseException(ex, "Could not insert email into database");
         }
         return user;
+    }
+
+    @Override
+    public List<User> retrieveAllUsers() throws DatabaseException {
+        Logger.getLogger("web").log(Level.INFO, "");
+
+        List<User> userList = new ArrayList<>();
+
+        String sql = "SELECT email, full_name, password, balance, address, zip_nr, role FROM carport.user";
+
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    String email = rs.getString("email");
+                    String fullName = rs.getString("full_name");
+                    String password = rs.getString("password");
+                    int balance = rs.getInt("balance");
+                    String address = rs.getString("address");
+                    int zipNr = rs.getInt("zip_nr");
+                    String role = rs.getString("role");
+                    User user = new User(email, fullName, password, balance, address, zipNr, role);
+                    userList.add(user);
+                }
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Error while loading 'carport' from Database.");
+        }
+        return userList;
     }
 }
