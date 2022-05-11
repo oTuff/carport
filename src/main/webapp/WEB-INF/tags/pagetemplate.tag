@@ -31,9 +31,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div style=position:fixed; class="navbar-nav">
                     <c:if test="${sessionScope.user.role == 'admin' }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user.role == 'admin' }">
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/ServletAdminPanel">| ADMIN |</a>
                     </c:if>
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link">${sessionScope.user.email}</a>
@@ -41,9 +44,6 @@
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">HJEM</a>
                     <c:if test="${sessionScope.user == null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND</a>
-                    </c:if>
-                    <c:if test="${sessionScope.user.role == 'admin' }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/ServletAdminPanel">| ADMIN |</a>
                     </c:if>
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">LOG UD</a>
