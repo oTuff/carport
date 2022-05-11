@@ -4,16 +4,29 @@ import java.util.ArrayList;
 
 public class Order {// refactor to be able to hold shed - make shed object??!
     private User user;
+    private int partsListOrderId;
+    String email;
     private int width;
     private int length;
-    private ArrayList<PartsListLine> partsListLines;
     private int orderPrice;
+    int shedId;
+    private ArrayList<PartsListLine> partsListLines;
+
 
     public Order(User user, int width, int length) {
         this.user = user;
         this.width = width;
         this.length = length;
         this.partsListLines = new ArrayList<>();
+    }
+
+    public Order(int partslistOrderId, String email, int width, int length, int orderPrice, int shedId) {
+        this.partsListOrderId = partslistOrderId;
+        this.email = email;
+        this.width = width;
+        this.length = length;
+        this.orderPrice = orderPrice;
+        this.shedId = shedId;
     }
 
     public int calcPrice(){// move to calculator!
