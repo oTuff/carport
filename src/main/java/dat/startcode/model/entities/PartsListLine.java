@@ -2,26 +2,33 @@ package dat.startcode.model.entities;
 
 public class PartsListLine {
     private Product product;
-    private int Length;
+    private int length;
     private int quantity;
     private String unit;
-    private String Description;
+    private String description;
     private int totalPrice;
 
     public PartsListLine(Product product, int quantity, String unit, String description) {
         this.product = product;
         this.quantity = quantity;
         this.unit = unit;
-        this.Description = description;
+        this.description = description;
         this.totalPrice = calcPrice();
+    }
+
+    public PartsListLine(Product product, int length, int quantity, String description) {
+        this.product = product;
+        this.length = length;
+        this.quantity = quantity;
+        this.description = description;
     }
 
     public PartsListLine(Product product, int length, int quantity, String unit, String description) {
         this.product = product;
-        Length = length;
+        this.length = length;
         this.quantity = quantity;
         this.unit = unit;
-        Description = description;
+        description = description;
         this.totalPrice = calcPrice();
     }
 
@@ -43,11 +50,11 @@ public class PartsListLine {
     }
 
     public int getLength() {
-        return Length;
+        return length;
     }
 
     public void setLength(int length) {
-        Length = length;
+        this.length = length;
     }
 
     public int getQuantity() {
@@ -67,11 +74,11 @@ public class PartsListLine {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        description = description;
     }
 
     public int getTotalPrice() {
