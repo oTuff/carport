@@ -32,15 +32,18 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
+                    <c:if test="${sessionScope.user.role == 'admin' }">
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT</a>
+                    </c:if>
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link">${sessionScope.user.email}</a>
                     </c:if>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Hjem</a>
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">HJEM</a>
                     <c:if test="${sessionScope.user == null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND</a>
                     </c:if>
                     <c:if test="${sessionScope.user != null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">Log out</a>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">LOG UD</a>
                     </c:if>
                 </div>
             </div>

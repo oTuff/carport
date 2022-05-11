@@ -296,3 +296,26 @@ CREATE TABLE carport_test.product LIKE carport.product;
 SET SQL_MODE = @OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS = @OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS = @OLD_UNIQUE_CHECKS;
+
+
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (500,'25x200 mm trykimp Brædt');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (350,'25x125mm trykimp Brædt');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (600,'38x73 mm Lægte ubh');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (699,'45x95 mm Reglar ub');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (1500,'45x195 mm spærtræ ubh');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (900,'97x97 mm trykimp Stolpe');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (500,'19x100 mm trykimp Brædt');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (900,'Plastmo Ecolite blåtonet');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (300,'plastmo bundskruer 200 stk');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (200,'hulbånd 1x20 mm 10 mtr');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (400,'universal 190 mm højre');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (400,'universal 190 mm venstre');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (350,'4,5 x 60 mm skruer 200 stk');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (325,'4,0 x 50 mm beslagskruer 250 stk');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (200,'bræddebolt 10 x 120 mm');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (900,'firkantskiver 40x40x11mm');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (600,'4,5 x 70 mm Skruer 400 stk');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (500,'4,5 x 50 mm Skruer 300 stk');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (240,'stalddørsgreb 50x75');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (400,'t hængsel 390 mm');
+INSERT INTO `carport`.`product`(product_price,product_name) VALUES (500,'vinkelbeslag 35');
