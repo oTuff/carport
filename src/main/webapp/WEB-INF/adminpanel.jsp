@@ -32,7 +32,7 @@
             <tbody>
             <c:forEach var="order" items="${requestScope.orderList}">
                 <tr>
-                    <td>${order.partsListOrderId}</td>
+                    <td>${order.partslistOrderId}</td>
                     <td>${order.email}</td>
                     <td>${order.width}</td>
                     <td>${order.length}</td>

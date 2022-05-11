@@ -26,7 +26,7 @@ public class OrderMapper implements IOrderMapper {
 
         List<Order> orderList = new ArrayList<>();
 
-        String sql = "SELECT partslist_order_id, email, total_width, total_length, order_price, shed_id FROM carport.user";
+        String sql = "SELECT partslist_order_id, email, total_width, total_length, order_price, shed_id, accepted FROM carport.partslist_order";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -38,7 +38,8 @@ public class OrderMapper implements IOrderMapper {
                     int length = rs.getInt("total_length");
                     int orderPrice = rs.getInt("order_price");
                     int shedId = rs.getInt("shed_id");
-                    Order order = new Order(partslistOrderId, email, width, length, orderPrice, shedId);
+                    boolean accepted = rs.getBoolean("accepted");
+                    Order order = new Order(partslistOrderId, email, width, length, orderPrice, shedId, accepted);
                     orderList.add(order);
                 }
             }
