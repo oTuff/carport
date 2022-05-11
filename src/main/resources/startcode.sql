@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `carport`.`partslist_order`
     `total_width`        INT         NOT NULL,
     `total_length`       INT         NOT NULL,
     `order_price`        INT         NOT NULL,
-    `shed_id`            INT         NOT NULL,
+    `shed_id`            INT         NULL,
     `accepted`           TINYINT     NULL,
     PRIMARY KEY (`partslist_order_id`),
     INDEX `fk_partslist_order_user1_idx` (`email` ASC) VISIBLE,
