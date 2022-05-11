@@ -176,7 +176,7 @@
                 if (checkBox.checked == true){
                     addressBar.disabled = false;
                     addressBar.value = "";
-                    addressBar.placeholder = "Din adresse";
+                    addressBar.placeholder = "Leveringsadresse";
                 } else {
                     addressBar.disabled = true;
                 }

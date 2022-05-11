@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <c:if test="${sessionScope.user.role == 'admin' }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletuseroverview" style="float:left!important;">BRUGEROVERSIGT</a>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT</a>
                     </c:if>
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link">${sessionScope.user.email}</a>
