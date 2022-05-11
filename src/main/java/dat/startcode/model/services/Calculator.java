@@ -16,6 +16,10 @@ public class Calculator {
         ArrayList<PartsListLine> partsList = new ArrayList<>();
 
         //widht & length check todo: make own method
+
+        if(length>720){
+
+        }
         if(width>720){
             width2=width/2;
             width=width2;
@@ -24,7 +28,7 @@ public class Calculator {
 
         //splitcheck
 //        if(!(width2 ==0))
-
+        int quantity = 2;
 
         //sternbræder
             //fix unit.
@@ -36,22 +40,50 @@ public class Calculator {
         PartsListLine p4 = new PartsListLine(getProduct(2),length,2, "ting", "oversternbrædde til siderne");
 
         //spærtræ
+        PartsListLine p5 = new PartsListLine(getProduct(3),length,2, "ting", "Remme i sider, sadles ned i stolper");
 
+        int spærQuantity = (int) Math.ceil(length/52);
+        PartsListLine p6 = new PartsListLine(getProduct(3),width,spærQuantity, "ting", "Remme i sider, sadles ned i stolper");
         //stolpe
 
+        int stolpeQuantity = (int) Math.ceil(length/300)*2;
+        PartsListLine p7 = new PartsListLine(getProduct(4),width,stolpeQuantity, "ting", "Stolper nedgraves 90 cm. i jord");
+
         //vandbræt
+        PartsListLine p8 = new PartsListLine(getProduct(5),length,2, "ting", "vandbrædt på stern i sider");
+        PartsListLine p9 = new PartsListLine(getProduct(5),width,1, "ting", "vandbrædt på stern i forende");
 
         //tagplader
+        int tagQuant = (int) Math.ceil(width/100);
+
+        PartsListLine p10 = new PartsListLine(getProduct(6),600,tagQuant, "ting", "tagplader monteres på spær");
+        if (length>600 && length<=960){
+            PartsListLine p11 = new PartsListLine(getProduct(6),360,tagQuant, "ting", "tagplader monteres på spær");
+            tagQuant=tagQuant*2;
+        } else if(length>960){
+            PartsListLine p12 = new PartsListLine(getProduct(6),600,tagQuant, "ting", "tagplader monteres på spær");
+            tagQuant=tagQuant*2;
+        }
 
         //tagskruer
+        PartsListLine p13 = new PartsListLine(getProduct(7),0,tagQuant/4, "ting", "Skruer til tagplader");
 
         //hulbånd
+        PartsListLine p14 = new PartsListLine(getProduct(8),0,2, "ting", "Til vindkryds på spær");
 
         //hulbåndskruer
+        PartsListLine p15 = new PartsListLine(getProduct(9),0,spærQuantity, "ting", "Til montering af spær på rem");
+        PartsListLine p16 = new PartsListLine(getProduct(10),0,spærQuantity, "ting", "Til montering af spær på rem");
 
-        //beslagskruer
+        //skruer mv.
+        PartsListLine p17 = new PartsListLine(getProduct(11),0,1, "ting", "Til montering af stern&vandbrædt");
+        PartsListLine p18 = new PartsListLine(getProduct(12),0,spærQuantity/5, "ting", "Til montering af universalbeslag + hulbånd");
 
-        //bræddebolt
+        PartsListLine p19 = new PartsListLine(getProduct(13),0,stolpeQuantity*3, "ting", "Til montering af rem på stolper");
+        PartsListLine p20 = new PartsListLine(getProduct(14),0,stolpeQuantity*2, "ting", "Til montering af rem på stolper");
+
+        PartsListLine p21 = new PartsListLine(getProduct(15),0,2, "ting", "Til montering af yderste beklæding");
+        PartsListLine p22 = new PartsListLine(getProduct(16),0,2, "ting", "Til montering af inderste beklædning");
 
         return partsList;
     }
@@ -59,7 +91,8 @@ public class Calculator {
     private static Product getProduct(int id) {//from db
         String productName = "";//get product name fra db
         int productPrice = 0;// get product price from db
-        Product product = new Product(productName,productPrice);
+        String productUnit = "";//get product unit fra db
+        Product product = new Product(productName,productPrice,productUnit);
 
         return product;
     }
