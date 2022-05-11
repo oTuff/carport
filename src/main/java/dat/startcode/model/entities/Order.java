@@ -2,7 +2,7 @@ package dat.startcode.model.entities;
 
 import java.util.ArrayList;
 
-public class Order {
+public class Order {// refactor to be able to hold shed - make shed object??!
     private User user;
     private int width;
     private int length;
@@ -16,7 +16,7 @@ public class Order {
         this.partsListLines = new ArrayList<>();
     }
 
-    public int calcPrice(){
+    public int calcPrice(){// move to calculator!
         int price=this.orderPrice;
         for ( PartsListLine l: partsListLines) {
            price=price+ l.getTotalPrice();
