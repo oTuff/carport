@@ -16,7 +16,7 @@ public class PartsListLine {
         this.totalPrice = calcPrice();
     }
 
-    public PartsListLine(Product product, int length, int quantity, String unit, String description, int totalPrice) {
+    public PartsListLine(Product product, int length, int quantity, String unit, String description) {
         this.product = product;
         Length = length;
         this.quantity = quantity;
@@ -25,7 +25,7 @@ public class PartsListLine {
         this.totalPrice = calcPrice();
     }
 
-    public int calcPrice() {
+    public int calcPrice() { // move to calculator!
         int price = totalPrice;
         if (getLength() == 0) {
             price = product.getPrice() * getQuantity();

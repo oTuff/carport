@@ -3,10 +3,20 @@ package dat.startcode.model.entities;
 public class Product {
     private String name;
     private int price;
+    private String unit;
 
-    public Product(String name, int price) {
+    public Product(String name, int price, String unit) {
         this.name = name;
         this.price = price;
+        this.unit = unit;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public String getName() {
