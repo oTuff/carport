@@ -15,7 +15,7 @@ public class Calculator {
         int length2 = 0; //same as width2.
         ArrayList<PartsListLine> partsList = new ArrayList<>();
 
-        //widht & length check todo: make own method
+        //width & length check todo: make own method
 
         if(length>720){
 
