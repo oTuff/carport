@@ -142,8 +142,11 @@
 
             <br>
 
-            <input type="text" class="form-control" value="Høje Gladsaxe 41, 1th" required placeholder="Adresse">
-            
+            <label for="address">Leveringsadresse</label>
+            <input type="text" class="form-control" disabled value="${sessionScope.user.address}" placeholder="Adresse" id="address" required>
+            <input type="checkbox" onclick="letUserChangeAddress()" id="addressCheckbox">
+            <label for="addressCheckbox">Levering til anden adresse</label>
+            <br>
             <br>
 
             <c:if test="${sessionScope.user != null}">
@@ -164,6 +167,18 @@
                     text.style.display = "block";
                 } else {
                     text.style.display = "none";
+                }
+            }
+
+            function letUserChangeAddress(){
+                var checkBox = document.getElementById("addressCheckbox");
+                var addressBar = document.getElementById("address");
+                if (checkBox.checked == true){
+                    addressBar.disabled = false;
+                    addressBar.value = "";
+                    addressBar.placeholder = "Din adresse";
+                } else {
+                    addressBar.disabled = true;
                 }
             }
         </script>

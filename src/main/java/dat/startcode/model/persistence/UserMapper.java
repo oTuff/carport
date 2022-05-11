@@ -31,8 +31,12 @@ public class UserMapper implements IUserMapper {
                 ps.setString(2, password);
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
+                    String fullName = rs.getString("full_name");
+                    int balance = rs.getInt("balance");
+                    String address = rs.getString("address");
+                    int zip = rs.getInt("zip_nr");
                     String role = rs.getString("role");
-                    user = new User(email, password, role);
+                    user = new User(email, fullName, balance, address, zip, role);
                 } else {
                     throw new DatabaseException("Wrong email or password");
                 }
@@ -99,5 +103,18 @@ public class UserMapper implements IUserMapper {
             throw new DatabaseException(ex, "Error while loading 'carport' from Database.");
         }
         return userList;
+    }
+
+    public void address(String email, String address) throws DatabaseException {
+        User user;
+        String sql = "UPDATE user SET address =" + address + " WHERE email = " + email;
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                Statement stmt = connection.createStatement();
+                stmt.executeUpdate(sql);
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Could not insert email into database");
+        }
     }
 }
