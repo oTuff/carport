@@ -5,12 +5,12 @@
 
 <t:pagetemplate>
     <jsp:body>
-        <form action="">
+        <form action="${pageContext.request.contextPath}/ServletGraphic" method="post">
             <div class="w3-border mx-auto" style="width:50%;">
-                <div class="w3-green text-center" style="height:24px;width:33%;">1/3</div>
+                <div class="w3-blue text-center" style="height:24px;width:33%;">1/3</div>
             </div>
             <label for="carportWidth">Carport bredde:</label>
-            <select class="form-control" id="carportWidth" name="carportWidth" title="carportWidth">
+            <select class="form-control" id="carportWidth" required name="carportWidth" title="carportWidth">
                 <option selected="selected" value="">Vælg bredde</option>
                 <option value="240 cm">240 cm</option>
                 <option value="270 cm">270 cm</option>
@@ -28,7 +28,7 @@
             </select>
 
             <label for="carportLength">Carport længde:</label>
-            <select class="form-control" id="carportLength" name="carportLength" title="Carport længde">
+            <select class="form-control" id="carportLength" required name="carportLength" title="Carport længde">
                 <option selected="selected" value="">Vælg længde</option>
                 <option value="240 cm">240 cm</option>
                 <option value="270 cm">270 cm</option>
@@ -140,17 +140,10 @@
                 </select>
             </div>
 
-            <script>
-                function hideSkurForm() {
-                    var checkBox = document.getElementById("skurCheckbox");
-                    var text = document.getElementById("skur");
-                    if (checkBox.checked == true){
-                        text.style.display = "block";
-                    } else {
-                        text.style.display = "none";
-                    }
-                }
-            </script>
+            <br>
+
+            <input type="text" class="form-control" value="Høje Gladsaxe 41, 1th" required placeholder="Adresse">
+            
             <br>
 
             <c:if test="${sessionScope.user != null}">
@@ -163,6 +156,17 @@
 
         </form>
 
+        <script>
+            function hideSkurForm() {
+                var checkBox = document.getElementById("skurCheckbox");
+                var text = document.getElementById("skur");
+                if (checkBox.checked == true){
+                    text.style.display = "block";
+                } else {
+                    text.style.display = "none";
+                }
+            }
+        </script>
     </jsp:body>
 
 </t:pagetemplate>
