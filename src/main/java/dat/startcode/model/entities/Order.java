@@ -30,6 +30,24 @@ public class Order {
         this.accepted = accepted;
     }
 
+    public Order(int partslistOrderId, User user, int width, int length, int orderPrice, int shedId, boolean accepted) {
+        this.partslistOrderId = partslistOrderId;
+        this.user = user;
+        this.width = width;
+        this.length = length;
+        this.orderPrice = orderPrice;
+        this.shedId = shedId;
+        this.accepted = accepted;
+    }
+
+    public int calcPrice(){// move to calculator!
+        int price=this.orderPrice;
+        for ( PartsListLine l: partsListLines) {
+           price=price+ l.getTotalPrice();
+        }
+        this.orderPrice=price;
+        return price;
+    }
 
     public User getUser() {
         return user;
@@ -93,5 +111,13 @@ public class Order {
 
     public void setPartsListLines(ArrayList<PartsListLine> partsListLines) {
         this.partsListLines = partsListLines;
+    }
+
+    public boolean isAccepted() {
+        return accepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
     }
 }

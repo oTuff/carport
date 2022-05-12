@@ -7,7 +7,7 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-        Adminpanel
+        Mine ordre
 
     </jsp:attribute>
 
@@ -30,30 +30,29 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="order" items="${requestScope.orderList}">
-
-                <form action="${pageContext.request.contextPath}/servletacceptorder" method="post">
-                    <tr>
-                        <td name="partslistOrderId">${order.partslistOrderId}</td>
-                        <td>${order.email}</td>
-                        <td>${order.width}</td>
-                        <td>${order.length}</td>
-                        <td>${order.orderPrice}</td>
-                        <td>${order.shedId}</td>
-                        <td>
-                            <c:if test="${order.accepted == false }">
-                                <form action="${pageContext.request.contextPath}/servletacceptorder" method="get">
-                                    <button name="accepter" class="btn btn-primary" id="accepter" value="${requestScope.myorderlist.indexOf(order)}">ACCEPTER
-                                    </button>
-
-                            </c:if>
+            <c:forEach var="order" items="${requestScope.myorderlist}">
+                <tr>
+                    <td>${order.partslistOrderId}</td>
+                    <td>${order.email}</td>
+                    <td>${order.width}</td>
+                    <td>${order.length}</td>
+                    <td>${order.orderPrice}</td>
+                    <td>${order.shedId}</td>
+                    <td>
+                        <c:if test="${order.accepted == false }">
+                        <button name="afventer" id="afventer" disabled="true" value="${requestScope.myorderlist.indexOf(order)}"
+                                formaction="">AFVENTER
+                        </button>
+                        </c:if>
 
                         <c:if test="${order.accepted == true }">
-                            <p>Accepteret</p>
+                            <button name="betal" id="betal" disabled="false" value="${requestScope.myorderlist.indexOf(order)}"
+                                    formaction="">BETAL
+                            </button>
                         </c:if>
+
                     </td>
                 </tr>
-                </form>
             </c:forEach>
             </tbody>
         </table>

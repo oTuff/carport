@@ -1,6 +1,7 @@
 package dat.startcode.control;
 import dat.startcode.model.config.ApplicationStart;
 import dat.startcode.model.entities.Order;
+import dat.startcode.model.entities.User;
 import dat.startcode.model.exceptions.DatabaseException;
 import dat.startcode.model.persistence.ConnectionPool;
 import dat.startcode.model.persistence.OrderMapper;
@@ -13,30 +14,32 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "ServletAdminPanel", value = "/servletadminpanel")
+@WebServlet(name = "ServletMyOrders", value = "/servletmyorders")
 
-public class ServletAdminPanel extends HttpServlet {
+public class ServletMyOrders extends HttpServlet {
     private ConnectionPool connectionPool;
 
     @Override
     public void init() throws ServletException {
         this.connectionPool = ApplicationStart.getConnectionPool();
+
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         OrderMapper orderMapper = new OrderMapper(connectionPool);
-        List<Order> orderList = null;
+        List<Order> myOrderList = null;
+        User myOrdersSession = (User) request.getSession().getAttribute("user");
         try {
-            orderList = orderMapper.retrieveAllOrders();
+            myOrderList = orderMapper.retrieveMyOrders(myOrdersSession);
         }
         catch (DatabaseException e) {
             Logger.getLogger("web").log(Level.SEVERE, e.getMessage());
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        request.setAttribute("orderList", orderList);
-        request.getRequestDispatcher("WEB-INF/adminpanel.jsp").forward(request, response);
+        request.setAttribute("myorderlist", myOrderList);
+        request.getRequestDispatcher("WEB-INF/myorders.jsp").forward(request, response);
 
     }
 }

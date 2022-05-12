@@ -24,7 +24,7 @@
                     </a>
                 </form>
 
-                <a href="">
+                <a href="${pageContext.request.contextPath}/index.jsp">
                     <button class="btn btn-primary">Tilbage</button>
                 </a>
             </div>
