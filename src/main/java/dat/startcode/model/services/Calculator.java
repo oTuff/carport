@@ -95,6 +95,9 @@ public class Calculator {
 
     private void calcPosts() {
         postQuantity = (int) Math.ceil(length / 300) * 2;
+        if (postQuantity<4){
+            postQuantity=4;
+        }
 
         partsList.add(new PartsListLine(getProduct(4), width, postQuantity, "Stolper nedgraves 90 cm. i jord"));
     }
