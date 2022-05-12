@@ -31,15 +31,29 @@
             </thead>
             <tbody>
             <c:forEach var="order" items="${requestScope.orderList}">
-                <tr>
-                    <td>${order.partslistOrderId}</td>
-                    <td>${order.email}</td>
-                    <td>${order.width}</td>
-                    <td>${order.length}</td>
-                    <td>${order.orderPrice}</td>
-                    <td>${order.shedId}</td>
-                    <td></td>
+
+                <form action="${pageContext.request.contextPath}/servletacceptorder" method="post">
+                    <tr>
+                        <td name="partslistOrderId">${order.partslistOrderId}</td>
+                        <td>${order.email}</td>
+                        <td>${order.width}</td>
+                        <td>${order.length}</td>
+                        <td>${order.orderPrice}</td>
+                        <td>${order.shedId}</td>
+                        <td>
+                            <c:if test="${order.accepted == false }">
+                                <form action="${pageContext.request.contextPath}/servletacceptorder" method="get">
+                                    <button name="accepter" class="btn btn-primary" id="accepter" value="${requestScope.myorderlist.indexOf(order)}">ACCEPTER
+                                    </button>
+
+                            </c:if>
+
+                        <c:if test="${order.accepted == true }">
+                            <p>Accepteret</p>
+                        </c:if>
+                    </td>
                 </tr>
+                </form>
             </c:forEach>
             </tbody>
         </table>
