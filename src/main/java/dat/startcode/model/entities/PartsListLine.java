@@ -88,4 +88,16 @@ public class PartsListLine {
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    @Override
+    public String toString() {
+        return "PartsListLine{" +
+                "product=" + product.getName() +
+                ", length=" + length +
+                ", quantity=" + quantity +
+                ", unit='" + product.getUnit() + '\'' +
+                ", description='" + description + '\'' +
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
 }

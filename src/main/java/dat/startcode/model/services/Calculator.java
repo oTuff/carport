@@ -21,6 +21,8 @@ public class Calculator {
         this.width = order.getWidth();
         this.length = order.getLength();
         this.partsList = new ArrayList<>();
+        this.boardQuantity=2;
+        this.boardLength=length;
     }
 
     //what to return?? void/partslis array/int??
@@ -67,11 +69,11 @@ public class Calculator {
         partsList.add(p16);
         PartsListLine p17 = new PartsListLine(getProduct(11), 0, 1, "Til montering af stern&vandbrædt");
         partsList.add(p17);
-        PartsListLine p18 = new PartsListLine(getProduct(12), 0, (int) Math.ceil(rafterQuantity / 5), "Til montering af universalbeslag + hulbånd");
+        PartsListLine p18 = new PartsListLine(getProduct(12), 0, (int) Math.ceil(rafterQuantity / 5.0), "Til montering af universalbeslag + hulbånd");
         partsList.add(p18);
-        PartsListLine p19 = new PartsListLine(getProduct(13), 0, (int) Math.ceil(postQuantity * 3), "Til montering af rem på stolper");
+        PartsListLine p19 = new PartsListLine(getProduct(13), 0, (int) Math.ceil(postQuantity * 3.0), "Til montering af rem på stolper");
         partsList.add(p19);
-        PartsListLine p20 = new PartsListLine(getProduct(14), 0, (int) Math.ceil(postQuantity * 2), "Til montering af rem på stolper");
+        PartsListLine p20 = new PartsListLine(getProduct(14), 0, (int) Math.ceil(postQuantity * 2.0), "Til montering af rem på stolper");
         partsList.add(p20);
         PartsListLine p21 = new PartsListLine(getProduct(15), 0, 2, "Til montering af yderste beklæding");
         partsList.add(p21);
@@ -82,19 +84,22 @@ public class Calculator {
         return partsList;
     }
 
-    private void splitCheck(){
+    private boolean splitCheck(){
+        boolean isSplit = false;
         if (length > 720) {
+            isSplit=true;
             boardQuantity = 4;
             boardLength = length / 2;
         }
+        return isSplit;
     }
 
     private void calcRafterQuantity() {
-        rafterQuantity = (int) Math.ceil(length / 52);
+        rafterQuantity = (int) Math.ceil(length / 52.0);
     }
 
     private void calcPosts() {
-        postQuantity = (int) Math.ceil(length / 300) * 2;
+        postQuantity = (int) Math.ceil(length / 300.0) * 2;
         if (postQuantity<4){
             postQuantity=4;
         }
@@ -103,7 +108,7 @@ public class Calculator {
     }
 
     private void calcRoofing() {
-        int roofQuantity = (int) Math.ceil(width / 100);
+        int roofQuantity = (int) Math.ceil(width / 100.0);
 
         partsList.add(new PartsListLine(getProduct(6), 600, roofQuantity, "tagplader monteres på spær"));
         if (length > 600 && length <= 960) {
@@ -113,7 +118,7 @@ public class Calculator {
             partsList.add(new PartsListLine(getProduct(6), 600, roofQuantity, "tagplader monteres på spær"));
             roofQuantity = roofQuantity * 2;
         }
-        partsList.add(new PartsListLine(getProduct(7), 0, (int) Math.ceil(roofQuantity / 4), "Skruer til tagplader"));
+        partsList.add(new PartsListLine(getProduct(7), 0, (int) Math.ceil(roofQuantity / 4.0), "Skruer til tagplader"));
     }
 
 
