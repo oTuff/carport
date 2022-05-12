@@ -3,7 +3,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
+
 <t:pagetemplate>
+
+    <jsp:attribute name="header">
+        Carport med fladt tag
+    </jsp:attribute>
+
+
     <jsp:body>
         <form action="${pageContext.request.contextPath}/ServletGraphic" method="post">
             <div class="w3-border mx-auto" style="width:50%;">
@@ -51,41 +58,6 @@
                 <option value="780 cm">780 cm</option>
             </select>
 
-            <!--
-            <label for="roof">Tag:</label>
-            <select class="form-control" id="roof" name="roof" title="Tagtype/farve">
-                <option selected="selected" value="">Vælg tagtype/farve</option>
-                <option value="Betontagsten - Rød">Betontagsten - Rød</option>
-                <option value="Betontagsten - Teglrød">Betontagsten - Teglrød</option>
-                <option value="Betontagsten - Brun">Betontagsten - Brun</option>
-                <option value="Betontagsten - Sort">Betontagsten - Sort</option>
-                <option value="Eternittag B6 - Grå">Eternittag B6 - Grå</option>
-                <option value="Eternittag B6 - Sort">Eternittag B6 - Sort</option>
-                <option value="Eternittag B6 - Mokka (brun)">Eternittag B6 - Mokka (brun)</option>
-                <option value="Eternittag B6 - Rødbrun">Eternittag B6 - Rødbrun</option>
-                <option value="Eternittag B6 - Teglrød">Eternittag B6 - Teglrød</option>
-                <option value="Eternittag B7 - Grå">Eternittag B7 - Grå</option>
-                <option value="Eternittag B7 - Sort">Eternittag B7 - Sort</option>
-                <option value="Eternittag B7 - Mokka (brun)">Eternittag B7 - Mokka (brun)</option>
-                <option value="Eternittag B7 - Rødbrun">Eternittag B7 - Rødbrun</option>
-                <option value="Eternittag B7 - Teglrød">Eternittag B7 - Teglrød</option>
-                <option value="Eternittag B7 - Rødflammet">Eternittag B7 - Rødflammet</option>
-            </select>
-
-            <label for="roofPitch">Taghældning:</label>
-            <select class="form-control" id="roofPitch" name="roofPitch" title="Taghældning">
-                <option value="15 grader">15 grader</option>
-                <option value="20 grader">20 grader</option>
-                <option selected="selected" value="25 grader">25 grader</option>
-                <option value="30 grader">30 grader</option>
-                <option value="35 grader">35 grader</option>
-                <option value="40 grader">40 grader</option>
-                <option value="45 grader">45 grader</option>
-            </select>
-            
-            <br>
-
-        -->
             <input type="checkbox" id="skurCheckbox" onclick="hideSkurForm()">
             <label for="skurCheckbox">Vil du have et skur?</label>
             <br>
@@ -143,7 +115,7 @@
             <br>
 
             <label for="address">Leveringsadresse</label>
-            <input type="text" class="form-control" disabled value="${sessionScope.user.address}" placeholder="Adresse" id="address" required>
+            <input type="text" class="form-control"  disabled value="${sessionScope.user.address}" placeholder="Adresse" id="address" name="address" required>
             <input type="checkbox" onclick="letUserChangeAddress()" id="addressCheckbox">
             <label for="addressCheckbox">Levering til anden adresse</label>
             <br>

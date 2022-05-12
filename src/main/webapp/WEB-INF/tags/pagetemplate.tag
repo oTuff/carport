@@ -76,11 +76,18 @@
         </div>
         <div class="col">
             <jsp:invoke fragment="footer"/><br/>
-            <p>&copy; 2022 Cphbusiness</p>
+            <a href="https://www.facebook.com/fogtraelastbyggecenter/">Facebook</a>
+            <br>
+            <a href="https://www.instagram.com/fogboligdesignhus/">Instagram</a>
+            <br>
+            <a href="https://www.linkedin.com/company/johannes-fog-as">LinkedIn</a>
+            <br>
+            <br>
+            <p>&copy; 2022 Johannes Fog A/S</p>
         </div>
         <div class="col">
-            Datamatikeruddannelsen<br/>
-            2. semester forår 2022
+            <p><strong>CVR</strong></p>
+            CVR-nr. 16314439
         </div>
     </div>
 </div>

@@ -105,9 +105,9 @@ public class UserMapper implements IUserMapper {
         return userList;
     }
 
-    public void address(String email, String address) throws DatabaseException {
+    public void updateAddress(String email, String address) throws DatabaseException {
         User user;
-        String sql = "UPDATE user SET address =" + address + " WHERE email = " + email;
+        String sql = "UPDATE user SET address = \"" + address +"\" WHERE email = \"" + email + "\"";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 Statement stmt = connection.createStatement();
