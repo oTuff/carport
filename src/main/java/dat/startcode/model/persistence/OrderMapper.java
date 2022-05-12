@@ -4,10 +4,7 @@ import dat.startcode.model.entities.Order;
 import dat.startcode.model.entities.User;
 import dat.startcode.model.exceptions.DatabaseException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -76,5 +73,18 @@ public class OrderMapper implements IOrderMapper {
             throw new DatabaseException(ex, "Error while loading 'carport' from Database.");
         }
         return myOrderList;
+    }
+
+    @Override
+    public void acceptOrder(int partslistOrderId) throws DatabaseException {
+        String sql = "UPDATE partslist_order SET accepted = 1 WHERE partslist_order_id = " + partslistOrderId;
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                Statement stmt = connection.createStatement();
+                stmt.executeUpdate(sql);
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Could not insert update partslist_order_id in database");
+        }
     }
 }

@@ -39,9 +39,9 @@
                     <td>${order.orderPrice}</td>
                     <td>${order.shedId}</td>
                     <td>
-                        <c:if test="${sessionScope.user == null }">
+                        <c:if test="${order.accepted == true }">
                         <button name="afventer" id="afventer" disabled="true" value="${requestScope.myorderlist.indexOf(order)}"
-                                formaction="">AFVENTER
+                                formaction="">Accepteret
                         </button>
                         </c:if>
                         <c:if test="${sessionScope.user != null }">
