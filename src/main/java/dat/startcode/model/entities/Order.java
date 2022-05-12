@@ -30,14 +30,6 @@ public class Order {
         this.accepted = accepted;
     }
 
-    public int calcPrice(){// move to calculator!
-        int price=this.orderPrice;
-        for ( PartsListLine l: partsListLines) {
-           price=price+ l.getTotalPrice();
-        }
-        this.orderPrice=price;
-        return price;
-    }
 
     public User getUser() {
         return user;

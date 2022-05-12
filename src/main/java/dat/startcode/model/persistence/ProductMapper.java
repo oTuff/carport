@@ -35,7 +35,7 @@ public class ProductMapper {
                     String unitAmount = rs.getString("unit_amount");
                     String unitName = rs.getString("unit_name");
                     if (!(unitAmount == null)) {//if unitAmount exists it will add it to the name. e.g. "hulbånd 1x20 mm."+ "10 mtr."
-                        name = name + " " + unitAmount;
+                        name = name + " " + unitAmount;//todo maybe just put the unit description in the product name???
                     }
                     products.add(new Product(name, price, unitName));
                 }
