@@ -12,42 +12,38 @@ public class Calculator {
     private int length;
     private ArrayList<PartsListLine> partsList;
     private int postQuantity;
+    private int rafterQuantity;
+    private int boardQuantity;
+    private int boardLength;
 
     public Calculator(Order order) {
         this.order = order;
         this.width = order.getWidth();
         this.length = order.getLength();
         this.partsList = new ArrayList<>();
-        this.postQuantity = (int) Math.ceil(length / 300) * 2;
     }
-
 
     //what to return?? void/partslis array/int??
     // static?
     public ArrayList<PartsListLine> calcPartsList() {
 
-        //length check todo: make own method
-        int quantity = 2;
-        int boardLength = length;
-        if (length > 720) {
-            quantity = 4;
-            boardLength = length / 2;
-        }
+        splitCheck();
 
         //todo fix description.
         //sternbræder
         PartsListLine p = new PartsListLine(getProduct(1), width, 2, "understernbrædder til for & bag ende");
         partsList.add(p);
-        PartsListLine p2 = new PartsListLine(getProduct(1), boardLength, quantity, "understernbrædder til siderne");
+        PartsListLine p2 = new PartsListLine(getProduct(1), boardLength, boardQuantity, "understernbrædder til siderne");
         partsList.add(p2);
         PartsListLine p3 = new PartsListLine(getProduct(2), width, 1, "oversternbrædde til forenden");
         partsList.add(p3);
-        PartsListLine p4 = new PartsListLine(getProduct(2), boardLength, quantity, "oversternbrædde til siderne");
+        PartsListLine p4 = new PartsListLine(getProduct(2), boardLength, boardQuantity, "oversternbrædde til siderne");
         partsList.add(p4);
 
+        calcRafterQuantity();
+
         //spærtræ
-        int rafterQuantity = (int) Math.ceil(length / 52);
-        PartsListLine p5 = new PartsListLine(getProduct(3), boardLength, quantity, "Remme i sider, sadles ned i stolper");
+        PartsListLine p5 = new PartsListLine(getProduct(3), boardLength, boardQuantity, "Remme i sider, sadles ned i stolper");
         partsList.add(p5);
         PartsListLine p6 = new PartsListLine(getProduct(3), width, rafterQuantity, "Remme i sider, sadles ned i stolper");
         partsList.add(p6);
@@ -55,12 +51,12 @@ public class Calculator {
         calcPosts();
 
         //vandbræt
-        PartsListLine p8 = new PartsListLine(getProduct(5), boardLength, quantity, "vandbrædt på stern i sider");
+        PartsListLine p8 = new PartsListLine(getProduct(5), boardLength, boardQuantity, "vandbrædt på stern i sider");
         partsList.add(p8);
         PartsListLine p9 = new PartsListLine(getProduct(5), width, 1, "vandbrædt på stern i forende");
         partsList.add(p9);
 
-        calcPartsList();
+        calcRoofing();
 
         //skruer mv.
         PartsListLine p14 = new PartsListLine(getProduct(8), 0, 2, "Til vindkryds på spær");
@@ -86,25 +82,35 @@ public class Calculator {
         return partsList;
     }
 
+    private void splitCheck(){
+        if (length > 720) {
+            boardQuantity = 4;
+            boardLength = length / 2;
+        }
+    }
+
+    private void calcRafterQuantity() {
+        rafterQuantity = (int) Math.ceil(length / 52);
+    }
+
     private void calcPosts() {
-        int width = order.getWidth();
-        int length = order.getLength();
+        postQuantity = (int) Math.ceil(length / 300) * 2;
 
         partsList.add(new PartsListLine(getProduct(4), width, postQuantity, "Stolper nedgraves 90 cm. i jord"));
     }
 
     private void calcRoofing() {
-        int tagQuant = (int) Math.ceil(width / 100);
+        int roofQuantity = (int) Math.ceil(width / 100);
 
-        partsList.add(new PartsListLine(getProduct(6), 600, tagQuant, "tagplader monteres på spær"));
+        partsList.add(new PartsListLine(getProduct(6), 600, roofQuantity, "tagplader monteres på spær"));
         if (length > 600 && length <= 960) {
-            partsList.add(new PartsListLine(getProduct(6), 360, tagQuant, "tagplader monteres på spær"));
-            tagQuant = tagQuant * 2;
+            partsList.add(new PartsListLine(getProduct(6), 360, roofQuantity, "tagplader monteres på spær"));
+            roofQuantity = roofQuantity * 2;
         } else if (length > 960) {
-            partsList.add(new PartsListLine(getProduct(6), 600, tagQuant, "tagplader monteres på spær"));
-            tagQuant = tagQuant * 2;
+            partsList.add(new PartsListLine(getProduct(6), 600, roofQuantity, "tagplader monteres på spær"));
+            roofQuantity = roofQuantity * 2;
         }
-        partsList.add(new PartsListLine(getProduct(7), 0, (int) Math.ceil(tagQuant / 4), "Skruer til tagplader"));
+        partsList.add(new PartsListLine(getProduct(7), 0, (int) Math.ceil(roofQuantity / 4), "Skruer til tagplader"));
     }
 
 
