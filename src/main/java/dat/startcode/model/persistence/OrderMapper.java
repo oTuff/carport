@@ -20,7 +20,7 @@ public class OrderMapper implements IOrderMapper {
         this.connectionPool = connectionPool;
     }
 
-
+    @Override
     public List<Order> retrieveAllOrders() throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
 
@@ -47,5 +47,34 @@ public class OrderMapper implements IOrderMapper {
             throw new DatabaseException(ex, "Error while loading 'carport' from Database.");
         }
         return orderList;
+    }
+
+    @Override
+    public List<Order> retrieveMyOrders(User user) throws DatabaseException {
+        Logger.getLogger("web").log(Level.INFO, "");
+
+        List<Order> myOrderList = new ArrayList<>();
+
+        String sql = "SELECT partslist_order_id, email, total_width, total_length, order_price, shed_id, accepted FROM carport.partslist_order WHERE email = '"+user.getEmail()+"'";
+
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int partslistOrderId = rs.getInt("partslist_order_id");
+                    String email = rs.getString("email");
+                    int width = rs.getInt("total_width");
+                    int length = rs.getInt("total_length");
+                    int orderPrice = rs.getInt("order_price");
+                    int shedId = rs.getInt("shed_id");
+                    boolean accepted = rs.getBoolean("accepted");
+                    Order order = new Order(partslistOrderId, email, width, length, orderPrice, shedId, accepted);
+                    myOrderList.add(order);
+                }
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Error while loading 'carport' from Database.");
+        }
+        return myOrderList;
     }
 }

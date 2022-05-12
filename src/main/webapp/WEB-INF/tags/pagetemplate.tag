@@ -33,17 +33,23 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <c:if test="${sessionScope.user.role == 'admin' }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT</a>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletuseroverview">| BRUGEROVERSIGT</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user.role == 'admin' }">
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletadminpanel">| ADMIN |</a>
                     </c:if>
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link">${sessionScope.user.email}</a>
                     </c:if>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">HJEM</a>
-                    <c:if test="${sessionScope.user == null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND</a>
+
+                    <c:if test="${sessionScope.user.role == 'user' }">
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletmyorders">| Mine ordre |</a>
                     </c:if>
-                    <c:if test="${sessionScope.user.role == 'admin' }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletadminpanel">| ADMIN |</a>
+
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/index.jsp">| HJEM |</a>
+
+                    <c:if test="${sessionScope.user == null }">
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND |</a>
                     </c:if>
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">LOG UD</a>
