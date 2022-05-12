@@ -45,7 +45,7 @@
                         </button>
                         </c:if>
                         <c:if test="${sessionScope.user != null }">
-                            <button name="betal" id="betal" disabled="false" value="${requestScope.myorderlist.indexOf(order)}"
+                            <button name="betal" id="betal" value="${requestScope.myorderlist.indexOf(order)}"
                                     formaction="">BETAL
                             </button>
                         </c:if>
