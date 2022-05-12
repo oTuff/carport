@@ -3,9 +3,7 @@ package dat.startcode.model.services;
 import dat.startcode.model.entities.Order;
 import dat.startcode.model.entities.PartsListLine;
 import dat.startcode.model.entities.Product;
-import dat.startcode.model.persistence.ProductMapper;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 public class Calculator {
@@ -25,7 +23,7 @@ public class Calculator {
         this.length = order.getLength();
         this.partsList = new ArrayList<>();
         this.boardLength = length;
-        this.products=products;
+        this.products = products;
     }
 
     //what to return?? void/partslis array/int??
@@ -34,7 +32,7 @@ public class Calculator {
 
         splitCheck();
 
-        //todo fix description.
+        //todo fix description. get from description arraylist from db.
         //sternbræder
         PartsListLine p = new PartsListLine(products.get(0), width, 2, "understernbrædder til for & bag ende");
         partsList.add(p);
@@ -45,14 +43,15 @@ public class Calculator {
         PartsListLine p4 = new PartsListLine(products.get(1), boardLength, boardQuantity, "oversternbrædde til siderne");
         partsList.add(p4);
 
+        //spærtræ
         calcRafterQuantity();
 
-        //spærtræ
         PartsListLine p5 = new PartsListLine(products.get(3), boardLength, boardQuantity, "Remme i sider, sadles ned i stolper");
         partsList.add(p5);
         PartsListLine p6 = new PartsListLine(products.get(3), width, rafterQuantity, "Remme i sider, sadles ned i stolper");
         partsList.add(p6);
 
+        //stolper
         calcPosts();
 
         //vandbræt
@@ -61,6 +60,7 @@ public class Calculator {
         PartsListLine p9 = new PartsListLine(products.get(5), width, 1, "vandbrædt på stern i forende");
         partsList.add(p9);
 
+        //tagplader
         calcRoofing();
 
         //skruer mv.
@@ -82,6 +82,8 @@ public class Calculator {
         partsList.add(p21);
         PartsListLine p22 = new PartsListLine(products.get(16), 0, 2, "Til montering af inderste beklædning");
         partsList.add(p22);
+
+        calcPrice();
 
         order.setPartsListLines(partsList);
         return partsList;
@@ -122,5 +124,21 @@ public class Calculator {
             roofQuantity = roofQuantity * 2;
         }
         partsList.add(new PartsListLine(products.get(7), 0, (int) Math.ceil(roofQuantity / 4.0), "Skruer til tagplader"));
+    }
+
+    public void calcLinePrice(PartsListLine l) {
+        if (l.getLength() == 0) {
+            l.setTotalPrice(l.getProduct().getPrice() * l.getQuantity());
+        } else
+            l.setTotalPrice(l.getProduct().getPrice() * l.getLength() * l.getQuantity());
+    }
+
+    public void calcPrice() {
+        int price = 0;
+        for (PartsListLine l : partsList) {
+            calcLinePrice(l);
+            price = price + l.getTotalPrice();
+        }
+        order.setOrderPrice(price);
     }
 }
