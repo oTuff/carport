@@ -13,7 +13,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ProductMapper { ConnectionPool connectionPool;
+public class ProductMapper {
+    ConnectionPool connectionPool;
 
     public ProductMapper(ConnectionPool connectionPool) {
         this.connectionPool = connectionPool;
@@ -33,14 +34,14 @@ public class ProductMapper { ConnectionPool connectionPool;
                     int price = rs.getInt("product_price");
                     String unitAmount = rs.getString("unit_amount");
                     String unitName = rs.getString("unit_name");
-                    if (!(unitAmount ==null)){//if unitAmount exists it will add it to the name. e.g. "hulbånd 1x20 mm."+ "10 mtr."
-                        name=name+" "+unitAmount;
+                    if (!(unitAmount == null)) {//if unitAmount exists it will add it to the name. e.g. "hulbånd 1x20 mm."+ "10 mtr."
+                        name = name + " " + unitAmount;
                     }
-                    Product p = new Product(name,price,unitName);
+                    products.add(new Product(name, price, unitName));
                 }
             }
         } catch (SQLException ex) {
-            throw new DatabaseException(ex, "Error while loading 'carport' from Database.");
+            throw new DatabaseException(ex, "Error while loading 'product' from Database.");
         }
         return products;
     }
