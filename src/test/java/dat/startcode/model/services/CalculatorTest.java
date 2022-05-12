@@ -7,32 +7,27 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 class CalculatorTest {
-    private Product product;
     private static Order order;
     private static Order order2;
+    private static ArrayList<Product> products;
     private static Calculator calculator;
     private static Calculator calculator2;
-
 
     @BeforeAll
     public static void setUpClass() {
         order = new Order(null,600,720);
         order2 = new Order(null,600,500);
-        calculator=new Calculator(order);
-        calculator2=new Calculator(order2);
+        calculator=new Calculator(order,products);
+        calculator2=new Calculator(order2,products);
     }
 
     @BeforeEach
     void setUp() {
         calculator.calcPartsList();
         calculator2.calcPartsList();
-    }
-
-    @Test
-    void calcPartsList() {
-        System.out.println(order.getPartsListLines());
-
     }
 
     @Test
