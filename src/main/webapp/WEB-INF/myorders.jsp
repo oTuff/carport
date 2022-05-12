@@ -40,13 +40,12 @@
                     <td>${order.shedId}</td>
                     <td>
                         <c:if test="${order.accepted == false }">
-                        <button name="afventer" id="afventer" disabled="true" value="${requestScope.myorderlist.indexOf(order)}"
-                                formaction="">AFVENTER
+                        <button name="afventer" id="afventer" disabled="true" value="${requestScope.myorderlist.indexOf(order)}">AFVENTER
                         </button>
                         </c:if>
 
                         <c:if test="${order.accepted == true }">
-                            <button name="betal" id="betal" disabled="false" value="${requestScope.myorderlist.indexOf(order)}"
+                            <button name="betal" id="betal" value="${requestScope.myorderlist.indexOf(order)}"
                                     formaction="">BETAL
                             </button>
                         </c:if>

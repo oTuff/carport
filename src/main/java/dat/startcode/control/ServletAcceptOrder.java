@@ -19,15 +19,12 @@ public class ServletAcceptOrder extends HttpServlet {
         this.connectionPool = ApplicationStart.getConnectionPool();
 
     }
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String partslistOrderId = request.getParameter("partslistOrderId");
-        System.out.println("Pártslistorderid: "+partslistOrderId);
+        System.out.println("partslistorderid: " + partslistOrderId);
         OrderMapper orderMapper = new OrderMapper(connectionPool);
         try {
             orderMapper.acceptOrder(Integer.parseInt(partslistOrderId));
