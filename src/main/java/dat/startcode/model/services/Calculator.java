@@ -90,7 +90,7 @@ public class Calculator {
         int width = order.getWidth();
         int length = order.getLength();
 
-        partsList.add(new PartsListLine(getProduct(4), width, postQuantity, "Stolper nedgraves 90 cm. i jord"););
+        partsList.add(new PartsListLine(getProduct(4), width, postQuantity, "Stolper nedgraves 90 cm. i jord"));
     }
 
     private void calcRoofing() {
@@ -98,10 +98,10 @@ public class Calculator {
 
         partsList.add(new PartsListLine(getProduct(6), 600, tagQuant, "tagplader monteres på spær"));
         if (length > 600 && length <= 960) {
-            partsList.add(new PartsListLine(getProduct(6), 360, tagQuant, "tagplader monteres på spær"););
+            partsList.add(new PartsListLine(getProduct(6), 360, tagQuant, "tagplader monteres på spær"));
             tagQuant = tagQuant * 2;
         } else if (length > 960) {
-            partsList.add(new PartsListLine(getProduct(6), 600, tagQuant, "tagplader monteres på spær"););
+            partsList.add(new PartsListLine(getProduct(6), 600, tagQuant, "tagplader monteres på spær"));
             tagQuant = tagQuant * 2;
         }
         partsList.add(new PartsListLine(getProduct(7), 0, (int) Math.ceil(tagQuant / 4), "Skruer til tagplader"));
