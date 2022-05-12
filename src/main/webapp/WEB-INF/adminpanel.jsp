@@ -34,7 +34,7 @@
 
                 <form action="${pageContext.request.contextPath}/servletacceptorder" method="post">
                     <tr>
-                        <td name="partslistOrderId">${order.partslistOrderId}</td>
+                        <td><input type="text" name="partslistOrderId" readonly value="${order.partslistOrderId}"></td>
                         <td>${order.email}</td>
                         <td>${order.width}</td>
                         <td>${order.length}</td>
@@ -42,17 +42,15 @@
                         <td>${order.shedId}</td>
                         <td>
                             <c:if test="${order.accepted == false }">
-                                <form action="${pageContext.request.contextPath}/servletacceptorder" method="get">
-                                    <button name="accepter" class="btn btn-primary" id="accepter" value="${requestScope.myorderlist.indexOf(order)}">ACCEPTER
-                                    </button>
+                                <input type="submit" name="accepter" class="btn btn-primary" id="accepter" value="Accepter">
 
                             </c:if>
 
-                        <c:if test="${order.accepted == true }">
-                            <p>Accepteret</p>
-                        </c:if>
-                    </td>
-                </tr>
+                            <c:if test="${order.accepted == true }">
+                                <p>Accepteret</p>
+                            </c:if>
+                        </td>
+                    </tr>
                 </form>
             </c:forEach>
             </tbody>
