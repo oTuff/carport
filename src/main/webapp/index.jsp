@@ -7,7 +7,7 @@
 <t:pagetemplate>
 
     <jsp:attribute name="header">
-        Carport med fladt tag
+        FOG Carport
     </jsp:attribute>
 
 

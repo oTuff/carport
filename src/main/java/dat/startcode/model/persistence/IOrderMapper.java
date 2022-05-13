@@ -9,6 +9,10 @@ import java.util.List;
 public interface IOrderMapper {
 
     public List<Order> retrieveAllOrders() throws DatabaseException;
+
     public List<Order> retrieveMyOrders(User user) throws DatabaseException;
+
     public void acceptOrder(int partslistOrderId) throws DatabaseException;
-    }
+
+    public List<Order> retrieveOrder(int partslistOrderId) throws DatabaseException;
+}

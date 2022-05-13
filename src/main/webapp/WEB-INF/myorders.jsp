@@ -31,8 +31,11 @@
             </thead>
             <tbody>
             <c:forEach var="order" items="${requestScope.myorderlist}">
+                <form action="servletpayment" method="post">
                 <tr>
-                    <td>${order.partslistOrderId}</td>
+                    <td>
+                        <input type="text" readonly value="${order.partslistOrderId}" name="partslistOrderId">
+                    </td>
                     <td>${order.email}</td>
                     <td>${order.width}</td>
                     <td>${order.length}</td>
@@ -40,18 +43,17 @@
                     <td>${order.shedId}</td>
                     <td>
                         <c:if test="${order.accepted == false }">
-                        <button name="afventer" id="afventer" disabled="true" value="${requestScope.myorderlist.indexOf(order)}">AFVENTER
+                        <button name="afventer" id="afventer" disabled="true" value="submit">AFVENTER
                         </button>
                         </c:if>
-
                         <c:if test="${order.accepted == true }">
-                            <button name="betal" id="betal" value="${requestScope.myorderlist.indexOf(order)}"
-                                    formaction="">BETAL
+                            <button name="betal" id="betal" value="submit">
+                                BETAL
                             </button>
                         </c:if>
-
                     </td>
                 </tr>
+                </form>
             </c:forEach>
             </tbody>
         </table>

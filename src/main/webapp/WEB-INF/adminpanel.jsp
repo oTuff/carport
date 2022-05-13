@@ -43,8 +43,6 @@
                         <td>
                             <c:if test="${order.accepted == false }">
                                     <input type="submit" name="accepter" class="btn btn-primary" id="accepter" value="ACCEPTER">
-
-
                             </c:if>
 
                         <c:if test="${order.accepted == true }">

@@ -10,6 +10,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,10 +19,13 @@ import java.util.logging.Logger;
 
 public class ServletMyOrders extends HttpServlet {
     private ConnectionPool connectionPool;
+    private List<Order> myOrdersList;
+
 
     @Override
     public void init() throws ServletException {
         this.connectionPool = ApplicationStart.getConnectionPool();
+        myOrdersList = new ArrayList<>();
 
     }
     @Override
@@ -32,14 +36,12 @@ public class ServletMyOrders extends HttpServlet {
         User myOrdersSession = (User) request.getSession().getAttribute("user");
         try {
             myOrderList = orderMapper.retrieveMyOrders(myOrdersSession);
-        }
-        catch (DatabaseException e) {
+        } catch (DatabaseException e) {
             Logger.getLogger("web").log(Level.SEVERE, e.getMessage());
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
         request.setAttribute("myorderlist", myOrderList);
         request.getRequestDispatcher("WEB-INF/myorders.jsp").forward(request, response);
-
     }
 }
