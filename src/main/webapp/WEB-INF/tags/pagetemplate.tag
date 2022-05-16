@@ -11,33 +11,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><jsp:invoke fragment="header"/></title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.jsp">
-                <img src="https://www.johannesfog.dk/globalassets/forsiden/fog-logo1.svg" width="100px;" class="img-fluid"/>
-                <img src="https://www.johannesfog.dk/globalassets/forsiden/TB5.svg" width="200px;" class="img-fluid"/>
+                <img src="${pageContext.request.contextPath}/images/Screenshot 2022-05-12 at 11.56.11.png" width="1250" height="125"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse justify-content-end">
+                <div class="navbar-nav">
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" rel="stylesheet">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div style=position:fixed; class="navbar-nav">
+                <div class="navbar-nav">
                     <c:if test="${sessionScope.user.role == 'admin' }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT</a>
-                    </c:if>
-                    <c:if test="${sessionScope.user.role == 'admin' }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/ServletAdminPanel">| ADMIN |</a>
-                    </c:if>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT</a>
+                        </c:if>
+                        <c:if test="${sessionScope.user.role == 'admin' }">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/servletadminpanel">| ADMIN |</a>
+                        </c:if>
+
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link">${sessionScope.user.email}</a>
                     </c:if>
@@ -45,20 +64,14 @@
                     <c:if test="${sessionScope.user == null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND</a>
                     </c:if>
-<<<<<<< HEAD
-=======
-                    <c:if test="${sessionScope.user.role == 'admin' }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletadminpanel">| ADMIN |</a>
-                    </c:if>
->>>>>>> 0aac8387029a43ace2826534aec232b5e72b03b0
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">LOG UD</a>
                     </c:if>
-                </div>
             </div>
         </div>
     </nav>
 </header>
+
 
 <div id="body" class="container mt-4" style="min-height: 400px;">
     <jsp:doBody/>
