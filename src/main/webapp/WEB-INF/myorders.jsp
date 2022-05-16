@@ -47,8 +47,8 @@
                         </button>
                         </c:if>
                         <c:if test="${order.accepted == true }">
-                            <button name="betal" id="betal" value="submit">
-                                BETAL
+                            <button name="kvittering" id="kvittering" value="submit">
+                                KVITTERING
                             </button>
                         </c:if>
                     </td>

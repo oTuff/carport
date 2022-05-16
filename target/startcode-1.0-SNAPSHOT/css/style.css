@@ -4,17 +4,6 @@ body{
     font-family: Verdana;
 }
 
-table {
-    border-collapse: collapse;
-    border: 1px solid silver;
-    padding:15px;
-}
-
-th, td {
-    border: 1px solid silver;
-    padding:15px;
-}
-
 
 .navbar-brand {
     vertical-align: middle;
@@ -22,7 +11,13 @@ th, td {
 }
 
 
+h1 {
+    text-align: center;
+}
 
+h4 {
+    text-align: center;
+}
 
 
 
@@ -34,6 +29,7 @@ th, td {
     margin: 1% auto 0;
     border-radius: 25px;
     background-color: whitesmoke;
+
 }
 
 .receiptbg {
@@ -43,9 +39,9 @@ th, td {
 
 #proceedbt {
     background-color: #c4bba3;
-    min-height: 75px;
+    min-height: 50px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 12px;
     border-radius: 25px;
 
 }

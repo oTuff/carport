@@ -34,7 +34,7 @@
 
                 <form action="${pageContext.request.contextPath}/servletacceptorder" method="post">
                     <tr>
-                        <td> <input type="text" name="partslistOrderId" value="${order.partslistOrderId}"></td>
+                        <td> <input type="text" readonly name="partslistOrderId" value="${order.partslistOrderId}"></td>
                         <td>${order.email}</td>
                         <td>${order.width}</td>
                         <td>${order.length}</td>
