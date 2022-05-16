@@ -24,7 +24,7 @@
                 <th>Fulde navn</th>
                 <th>Kodeord</th>
                 <th>Saldo</th>
-                <th>Adresse</th>
+                <th>Leaveringsadresse</th>
                 <th>Postnummer</th>
                 <th>Rolle</th>
             </tr>

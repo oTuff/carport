@@ -7,7 +7,7 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-        Adminpanel
+        Mine ordre
 
     </jsp:attribute>
 
@@ -30,23 +30,26 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="order" items="${requestScope.orderList}">
-
-                <form action="${pageContext.request.contextPath}/servletacceptorder" method="post">
-                    <tr>
-                        <td> <input type="text" name="partslistOrderId" value="${order.partslistOrderId}"></td>
-                        <td>${order.email}</td>
-                        <td>${order.width}</td>
-                        <td>${order.length}</td>
-                        <td>${order.orderPrice}</td>
-                        <td>${order.shedId}</td>
-                        <td>
-                            <c:if test="${order.accepted == false }">
-                                    <input type="submit" name="accepter" class="btn btn-primary" id="accepter" value="ACCEPTER">
-                            </c:if>
-
+            <c:forEach var="order" items="${requestScope.myorderlist}">
+                <form action="servletpayment" method="post">
+                <tr>
+                    <td>
+                        <input type="text" readonly value="${order.partslistOrderId}" name="partslistOrderId">
+                    </td>
+                    <td>${order.email}</td>
+                    <td>${order.width}</td>
+                    <td>${order.length}</td>
+                    <td>${order.orderPrice}</td>
+                    <td>${order.shedId}</td>
+                    <td>
+                        <c:if test="${order.accepted == false }">
+                        <button name="afventer" id="afventer" disabled="true" value="submit">AFVENTER
+                        </button>
+                        </c:if>
                         <c:if test="${order.accepted == true }">
-                            <p>Accepteret</p>
+                            <button name="betal" id="betal" value="submit">
+                                BETAL
+                            </button>
                         </c:if>
                     </td>
                 </tr>

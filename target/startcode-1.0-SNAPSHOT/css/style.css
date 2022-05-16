@@ -26,3 +26,27 @@ th, td {
 
 
 
+/* Receipt design */
+.receiptdesign {
+    position: relative;
+    max-width: 750px;
+    box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.5);
+    margin: 1% auto 0;
+    border-radius: 25px;
+    background-color: whitesmoke;
+}
+
+.receiptbg {
+    /*background-image: url(../images/cartbg2.png);*/
+    /*background-size: cover;*/
+}
+
+#proceedbt {
+    background-color: #c4bba3;
+    min-height: 75px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 25px;
+
+}
+
