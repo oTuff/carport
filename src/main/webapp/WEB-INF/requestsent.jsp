@@ -14,14 +14,14 @@
             <div class="mx-auto text-center">
                 <h1>Tak fordi du valgte os!
                     <br>
-                    Vi vil besvare din forespørgsel hurtigt muligt.
+                    Vi vil besvare din forespørgsel hurtigst muligt.
                     <br>
                     <br>
                 </h1>
                 <p>Du kan finde og betale under <a href="">ordre</a> når din forespørgsel er blevet accepteret af vores professionelle håndværkere.</p>
 
-                <a href="">
-                    <button class="btn btn-primary">Mine ordrer</button>
+                <a href="servletmyorders">
+                    <button class="btn btn-primary" >Mine ordrer</button>
                 </a>
             </div>
         </div>
