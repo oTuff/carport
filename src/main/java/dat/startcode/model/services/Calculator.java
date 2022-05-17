@@ -11,9 +11,9 @@ public class Calculator {
     private int width;
     private int length;
     private ArrayList<PartsListLine> partsList;
-    private int postQuantity = 2;
+    private int postQuantity;
     private int rafterQuantity;
-    private int boardQuantity;
+    private int boardQuantity = 2;
     private int boardLength;
     private ArrayList<Product> products;
 
