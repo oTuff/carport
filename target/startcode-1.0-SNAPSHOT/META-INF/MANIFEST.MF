@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Created-By: IntelliJ IDEA
-Built-By: tuff
-Build-Jdk: Oracle OpenJDK version 17.0.2
+Built-By: marklundgaard
+Build-Jdk: version 17
 
-=======
-Manifest-Version: 1.0
-Created-By: IntelliJ IDEA
-Built-By: gustavbogh
-Build-Jdk: version 17.0.1
-
->>>>>>> 190ae2d (units)
