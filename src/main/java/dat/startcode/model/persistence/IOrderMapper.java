@@ -12,7 +12,9 @@ public interface IOrderMapper {
 
     public List<Order> retrieveMyOrders(User user) throws DatabaseException;
 
-    public void acceptOrder(int partslistOrderId) throws DatabaseException;
+    public void acceptOrder(int partslistOrderId);
 
     public List<Order> retrieveOrder(int partslistOrderId) throws DatabaseException;
+
+    public void deleteOrder(int partslistOrderId);
 }

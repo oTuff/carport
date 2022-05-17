@@ -52,7 +52,7 @@ public class OrderMapper implements IOrderMapper {
 
         List<Order> myOrderList = new ArrayList<>();
 
-        String sql = "SELECT partslist_order_id, email, total_width, total_length, order_price, shed_id, accepted FROM carport.partslist_order WHERE email = '"+user.getEmail()+"'";
+        String sql = "SELECT partslist_order_id, email, total_width, total_length, order_price, shed_id, accepted FROM carport.partslist_order WHERE email = '" + user.getEmail() + "'";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -81,7 +81,7 @@ public class OrderMapper implements IOrderMapper {
 
         List<Order> myOrderList = new ArrayList<>();
 
-        String sql = "SELECT partslist_order_id, email, total_width, total_length, order_price, shed_id, accepted FROM carport.partslist_order WHERE partslist_order_id = '"+partslistOrderId+"'";
+        String sql = "SELECT partslist_order_id, email, total_width, total_length, order_price, shed_id, accepted FROM carport.partslist_order WHERE partslist_order_id = '" + partslistOrderId + "'";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -105,7 +105,7 @@ public class OrderMapper implements IOrderMapper {
     }
 
     @Override
-    public void acceptOrder(int partslistOrderId) throws DatabaseException {
+    public void acceptOrder(int partslistOrderId) {
         String sql = "UPDATE partslist_order SET accepted = 1 WHERE partslist_order_id = " + partslistOrderId;
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -113,7 +113,28 @@ public class OrderMapper implements IOrderMapper {
                 stmt.executeUpdate(sql);
             }
         } catch (SQLException ex) {
-            throw new DatabaseException(ex, "Could not insert update partslist_order_id in database");
+            try {
+                throw new DatabaseException(ex, "Could not insert update partslist_order_id in database");
+            } catch (DatabaseException e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+    public void deleteOrder(int partslistOrderId) {
+        String sql = "DELETE FROM partslist_order WHERE partslist_order_id=" + partslistOrderId;
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                Statement stmt = connection.createStatement();
+                stmt.execute(sql);
+            }
+        } catch (SQLException ex) {
+            try {
+                throw new DatabaseException(ex, "Could not insert delete partslist_order_id in database");
+            } catch (DatabaseException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }
