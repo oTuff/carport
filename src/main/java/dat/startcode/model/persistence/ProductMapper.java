@@ -24,7 +24,7 @@ public class ProductMapper {
         Logger.getLogger("web").log(Level.INFO, "");
         ArrayList<Product> products = new ArrayList<>();
 
-        String sql = "SELECT p.product_name, p.product_price, p.unit_amount, u.unit_name FROM carport.product p INNER JOIN carport.unit u ON p.unit_id";
+        String sql = "SELECT p.product_name, p.product_price, u.unit_name FROM carport.product p INNER JOIN carport.unit u ON p.unit_id";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -32,11 +32,7 @@ public class ProductMapper {
                 while (rs.next()) {
                     String name = rs.getString("product_name");
                     int price = rs.getInt("product_price");
-                    String unitAmount = rs.getString("unit_amount");
                     String unitName = rs.getString("unit_name");
-                    if (!(unitAmount == null)) {//if unitAmount exists it will add it to the name. e.g. "hulbånd 1x20 mm."+ "10 mtr."
-                        name = name + " " + unitAmount;//todo maybe just put the unit description in the product name???
-                    }
                     products.add(new Product(name, price, unitName));
                 }
             }
