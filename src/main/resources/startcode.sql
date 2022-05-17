@@ -141,7 +141,6 @@ CREATE TABLE IF NOT EXISTS `carport`.`product`
     `product_name`  VARCHAR(45) NOT NULL,
     `product_price` INT         NOT NULL,
     `unit_id`       INT         NOT NULL,
-    `unit_amount`   VARCHAR(45) NULL,
     PRIMARY KEY (`product_id`),
     INDEX `fk_product_unit1_idx` (`unit_id` ASC) VISIBLE,
     CONSTRAINT `fk_product_unit1`
