@@ -9,14 +9,14 @@ public class SVG {
     private int width;
     private int height;
 
-    private final String headerTemplate = "<svg height=\"%d%%\" " +
-            "width=\"%d%%\" " +
+    private final String headerTemplate = "<svg height=\"%d\" " +
+            "width=\"%d\" " +
             "viewBox=\"%s\" " +
             "x=\"%d\"   " +
             "y=\"%d\"   " +
             " preserveAspectRatio=\"xMinYMin\">";
 
-    private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%f\" width=\"%f\" style=\"stroke:#000000; fill: #ffffff\" />";
+    private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />";
 
     public SVG(int x, int y, String viewBox, int width, int height) {
         this.x = x;
@@ -27,7 +27,7 @@ public class SVG {
         svg.append(String.format(headerTemplate, height, width, viewBox, x, y));
     }
 
-    public void addRect(int x, int y, double height, double width) {
+    public void addRect(int x, int y, int height, int width) {
         svg.append(String.format(rectTemplate, x, y, height, width));
     }
 

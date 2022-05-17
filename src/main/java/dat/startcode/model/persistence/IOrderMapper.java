@@ -7,6 +7,7 @@ import dat.startcode.model.exceptions.DatabaseException;
 import java.util.List;
 
 public interface IOrderMapper {
+    public void insertOrder(Order order);
 
     public List<Order> retrieveAllOrders() throws DatabaseException;
 

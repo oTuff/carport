@@ -29,6 +29,7 @@ public class ServletGraphic extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
 
     }
 
@@ -49,20 +50,22 @@ public class ServletGraphic extends HttpServlet {
         }
 
         Calculator calc = new Calculator(order,products);
+        calc.calcPartsList();
 
         int rafterQuantity = order.getPartsListLines().get(5).getQuantity();
 
-        SVG svg = new SVG(0, 0, "0 0 800 600", 100, 50);
+        SVG svg = new SVG(0, 0, "0 0 800 600", 600, 600);
 
-        svg.addRect(0, 15, 4.5, carportLength);
-        svg.addRect(0, carportWidth - 15, 4.5, carportLength);
+        svg.addRect(0, 15, 4, carportLength);
+        svg.addRect(0, carportWidth - 15, 4, carportLength);
 
 
         for (int x = 0; x < rafterQuantity; x++) {
-            svg.addRect(100 + 50 * x, 0, carportWidth, 4.5);
+            svg.addRect(2 + carportLength/(rafterQuantity-1) * x, 0, carportWidth, 4);
         }
         request.setAttribute("svgdrawing", svg.toString());
         String address = request.getParameter("address");
+        request.setAttribute("order", order);
         if(address != null){
             UserMapper userMapper = new UserMapper(connectionPool);
             try {
