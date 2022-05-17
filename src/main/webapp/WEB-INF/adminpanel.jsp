@@ -40,10 +40,11 @@
                         <td>${order.length}</td>
                         <td>${order.orderPrice}</td>
                         <td>${order.shedId}</td>
+                        <td><input type="submit" name="delete" class="btn btn-danger" value="SLET" formaction="${pageContext.request.contextPath}/servletdeleteorder"></td>
                         <td>
-                            <c:if test="${order.accepted == false }">
-                                    <input type="submit" name="accepter" class="btn btn-primary" id="accepter" value="ACCEPTER">
-                            </c:if>
+                        <c:if test="${order.accepted == false }">
+                                <input type="submit" name="accepter" class="btn btn-primary" id="accepter" value="ACCEPTER">
+                        </c:if>
 
                         <c:if test="${order.accepted == true }">
                             <p>Accepteret</p>
