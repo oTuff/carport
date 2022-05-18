@@ -12,7 +12,7 @@
             </div>
             <br>
             <div class="mx-auto text-center">
-                <h1>Vejledende pris: ${requestScope.order.orderPrice}</h1>
+                <h1>Vejledende pris: ${requestScope.order.orderPrice} kr</h1>
                 <br>
                 <p><strong>Skitse</strong></p>
                 ${requestScope.svgdrawing}

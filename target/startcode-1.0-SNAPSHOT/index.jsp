@@ -122,12 +122,10 @@
             <br>
 
             <c:if test="${sessionScope.user != null}">
-                <input type="submit" class="btn btn-primary" value="Næste" style="width:25%; font-weight: bold;">
+                <button type="submit" class="btn btn-primary" disabled="true" value="Næste" style="width:25%; font-weight: bold;">
             </c:if>
 
-            <c:if test="${sessionScope.user == null}">
-                <input type="submit" class="btn btn-primary" value="Næste" style="width:25%; font-weight: bold;">
-            </c:if>
+
 
         </form>
 
