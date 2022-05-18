@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
 Created-By: IntelliJ IDEA
-<<<<<<< HEAD
 Built-By: gustavbogh
 Build-Jdk: version 17.0.1
-=======
-Built-By: marklundgaard
-Build-Jdk: version 17
->>>>>>> cce8522033b000c028354a6ed10cd0b07963e2ad
 
