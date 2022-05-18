@@ -105,7 +105,9 @@ public class ServletGraphic extends HttpServlet {
             if (userSession != null) {
                 //int String email, int width, int length, int orderPrice, int shedId, boolean accepted
                 Order orderToInsert = new Order(0, userSession.getEmail(), carportWidth, carportLength, order.getOrderPrice(), 0, false);
-                orderMapper.insertOrder(orderToInsert);
+
+                HttpSession session = request.getSession();
+                session.setAttribute("order", orderToInsert);
 
                 if (address != null) {
                     if (!address.equals(userSession.getAddress())) {
