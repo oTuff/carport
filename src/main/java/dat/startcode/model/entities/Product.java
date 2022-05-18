@@ -1,14 +1,23 @@
 package dat.startcode.model.entities;
 
 public class Product {
+    private int productId;
     private String name;
     private int price;
     private String unit;
+    private int unitId;
 
     public Product(String name, int price, String unit) {
         this.name = name;
         this.price = price;
         this.unit = unit;
+    }
+
+    public Product(int productId, String name, int price, int unitId) {
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+        this.unitId = unitId;
     }
 
     public String getUnit() {
@@ -33,5 +42,21 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getUnitId() {
+        return unitId;
+    }
+
+    public void setUnitId(int unitId) {
+        this.unitId = unitId;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 }
