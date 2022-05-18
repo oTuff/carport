@@ -2,6 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page errorPage="../error.jsp" isErrorPage="false" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <t:pagetemplate>
 
@@ -12,7 +13,7 @@
             </div>
             <br>
             <div class="mx-auto text-center">
-                <h1>Vejledende pris: ${requestScope.order.orderPrice}</h1>
+                <h1><fmt:formatNumber type = "number" maxFractionDigits="3" value="${requestScope.order.orderPrice}" />kr</h1>
                 <br>
                 <p><strong>Skitse</strong></p>
                 ${requestScope.svgdrawing}

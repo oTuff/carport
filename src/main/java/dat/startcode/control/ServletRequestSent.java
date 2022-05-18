@@ -1,6 +1,7 @@
 package dat.startcode.control;
 
 import dat.startcode.model.config.ApplicationStart;
+import dat.startcode.model.entities.Order;
 import dat.startcode.model.persistence.ConnectionPool;
 
 import javax.servlet.*;
@@ -19,6 +20,14 @@ public class ServletRequestSent extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        /* Virker ikke
+        Order order = (Order) request.getSession().getAttribute("order");
+        System.out.println(order.getEmail() + "\n" +
+                order.getWidth() + "\n" +
+                order.getLength() + "\n" +
+                order.getOrderPrice()); */
+
         request.getRequestDispatcher("/WEB-INF/requestsent.jsp").forward(request, response);
     }
 
