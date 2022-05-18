@@ -297,27 +297,27 @@ SET FOREIGN_KEY_CHECKS = @OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS = @OLD_UNIQUE_CHECKS;
 
 
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (500,'25x200 mm trykimp Brædt',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (350,'25x125mm trykimp Brædt',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (600,'38x73 mm Lægte ubh',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (699,'45x95 mm Reglar ub',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (1500,'45x195 mm spærtræ ubh',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (900,'97x97 mm trykimp Stolpe',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (500,'19x100 mm trykimp Brædt',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (900,'Plastmo Ecolite blåtonet',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (300,'plastmo bundskruer 200 stk',2);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (200,'hulbånd 1x20 mm 10 mtr',3);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (400,'universal 190 mm højre',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (400,'universal 190 mm venstre',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (350,'4,5 x 60 mm skruer 200 stk',2);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (325,'4,0 x 50 mm beslagskruer 250 stk',2);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (200,'bræddebolt 10 x 120 mm',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (900,'firkantskiver 40x40x11mm',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (600,'4,5 x 70 mm Skruer 400 stk',2);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (500,'4,5 x 50 mm Skruer 300 stk',2);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (240,'stalddørsgreb 50x75',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (400,'t hængsel 390 mm',1);
-INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (500,'vinkelbeslag 35',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (100,'25x200 mm trykimp Brædt',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (75,'25x125mm trykimp Brædt',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (20,'38x73 mm Lægte ubh',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (80,'45x95 mm Reglar ub',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (85,'45x195 mm spærtræ ubh',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (59,'97x97 mm trykimp Stolpe',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (50,'19x100 mm trykimp Brædt',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (48,'Plastmo Ecolite blåtonet',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (229,'plastmo bundskruer 200 stk',2);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (109,'hulbånd 1x20 mm 10 mtr',3);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (25,'universal 190 mm højre',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (25,'universal 190 mm venstre',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (200,'4,5 x 60 mm skruer 200 stk',2);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (175,'4,0 x 50 mm beslagskruer 250 stk',2);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (170,'bræddebolt 10 x 120 mm',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (126,'firkantskiver 40x40x11mm',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (229,'4,5 x 70 mm Skruer 400 stk',2);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (150,'4,5 x 50 mm Skruer 300 stk',2);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (169,'stalddørsgreb 50x75',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (79,'t hængsel 390 mm',1);
+INSERT INTO `carport`.`product`(product_price,product_name,unit_id) VALUES (70,'vinkelbeslag 35',1);
 
 
 INSERT INTO `carport`.`unit`(unit_name) VALUES ('Stk');
