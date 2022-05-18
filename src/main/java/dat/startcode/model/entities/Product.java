@@ -44,6 +44,7 @@ public class Product {
         this.price = price;
     }
 
+<<<<<<< HEAD
     public int getUnitId() {
         return unitId;
     }
@@ -59,4 +60,9 @@ public class Product {
     public void setProductId(int productId) {
         this.productId = productId;
     }
+=======
+    public int getProductId() {
+        return productId;
+    }
+>>>>>>> 451af65 (added product_id and partslistlinemapper function to write to db)
 }
