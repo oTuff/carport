@@ -1,23 +1,23 @@
 package dat.startcode.control;
+
 import dat.startcode.model.config.ApplicationStart;
-import dat.startcode.model.entities.Order;
 import dat.startcode.model.entities.Product;
 import dat.startcode.model.exceptions.DatabaseException;
 import dat.startcode.model.persistence.ConnectionPool;
-import dat.startcode.model.persistence.OrderMapper;
 import dat.startcode.model.persistence.ProductMapper;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "ServletAdminProducts", value = "/servletadminproducts")
+@WebServlet(name = "ServletProductEdit", urlPatterns = {"/servletproductedit"})
+public class ServletProductEdit extends HttpServlet {
 
-public class ServletAdminProducts extends HttpServlet {
     private ConnectionPool connectionPool;
 
     @Override
@@ -27,24 +27,19 @@ public class ServletAdminProducts extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+        String idString = request.getParameter("edit");
+        int productId = Integer.parseInt(idString);
+        Product product = null;
         ProductMapper productMapper = new ProductMapper(connectionPool);
-        List<Product> productList = null;
         try {
-            productList = productMapper.retrieveAllProducts();
-        }
-        catch (DatabaseException e) {
+            product = productMapper.getProductId(productId);
+
+        } catch (DatabaseException e) {
             Logger.getLogger("web").log(Level.SEVERE, e.getMessage());
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        request.setAttribute("productlist", productList);
-        request.getRequestDispatcher("WEB-INF/adminproducts.jsp").forward(request, response);
-
+        request.setAttribute("product", product);
+        request.getRequestDispatcher("WEB-INF/productedit.jsp").forward(request, response);
     }
 }

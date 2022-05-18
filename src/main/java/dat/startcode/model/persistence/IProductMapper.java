@@ -10,4 +10,8 @@ public interface IProductMapper {
 
     public ArrayList<Product> retrieveAllProducts() throws DatabaseException;
 
+    public Product getProductId(int productId) throws DatabaseException;
+
+    public boolean updateProduct(Product product) throws DatabaseException;
+
 }

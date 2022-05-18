@@ -12,6 +12,7 @@
     </jsp:attribute>
 
     <jsp:attribute name="footer">
+        Admin Produktliste
 
     </jsp:attribute>
 
@@ -32,9 +33,13 @@
                 <tr>
                     <td>${product.productId}</td>
                     <td>${product.name}</td>
-                    <td>${product.price}</td>
+                    <td>${product.price} kr</td>
                     <td>${product.unitId}</td>
-                    <td></td>
+                    <td>
+                    <form action="servletproductedit" method="post">
+                        <button type="submit" name="edit" value="${product.productId}">Rediger</button>
+                    </form>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>

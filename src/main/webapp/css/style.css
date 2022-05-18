@@ -1,4 +1,4 @@
-/* CSS stylesheet for application */
+/* Standard design */
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +29,6 @@ h4 {
 }
 
 
-
 /* Receipt design */
 .receiptdesign {
     position: relative;
@@ -53,6 +52,5 @@ h4 {
     font-weight: bold;
     font-size: 20px;
     border-radius: 25px;
-
 }
 

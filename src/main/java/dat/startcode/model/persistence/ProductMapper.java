@@ -64,4 +64,55 @@ public class ProductMapper implements IProductMapper {
         }
         return products;
     }
+
+    @Override
+    public Product getProductId(int productId) throws DatabaseException {
+        Logger.getLogger("web").log(Level.INFO, "productId=" + productId);
+        Product product = null;
+        String sql = "SELECT * FROM carport.product WHERE product_id = ?";
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, productId);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    productId = rs.getInt("product_id");
+                    String productName = rs.getString("product_name");
+                    int productPrice = rs.getInt("product_price");
+                    int unitId = rs.getInt("unit_id");
+
+                    product = new Product(productId, productName, productPrice, unitId);
+                } else {
+                    throw new DatabaseException("Product with id = " + productId + " does not exist");
+                }
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException("Product with id = " + productId + " does not exist");
+        }
+        return product;
+    }
+
+    @Override
+    public boolean updateProduct(Product product) throws DatabaseException {
+        Logger.getLogger("web").log(Level.INFO, "");
+        boolean result = false;
+        String sql = "UPDATE carport.product SET product_name = ?, product_price = ?, unit_id = ? " +
+                "WHERE product_id = ?";
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setString(1, product.getName());
+                ps.setInt(2, product.getPrice());
+                ps.setInt(3, product.getUnitId());
+                ps.setInt(4, product.getProductId());
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected == 1) {
+                    result = true;
+                } else {
+                    throw new DatabaseException("Could not update product with id = " + product.getProductId());
+                }
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException("Could not update product with id = " + product.getProductId());
+        }
+        return result;
+    }
 }
