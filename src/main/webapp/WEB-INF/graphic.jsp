@@ -12,10 +12,10 @@
             </div>
             <br>
             <div class="mx-auto text-center">
-                <h1>Vejledende pris: 16.525kr</h1>
+                <h1>Vejledende pris: ${requestScope.order.orderPrice}</h1>
                 <br>
                 <p><strong>Skitse</strong></p>
-                <img src="https://i.imgur.com/Jh23mpv.png" alt="Vejledende skitse" style="max-width:400px;">
+                ${requestScope.svgdrawing}
 
                 <br>
                 <form action="${pageContext.request.contextPath}/ServletRequestSent" method="get">
