@@ -102,7 +102,7 @@ public class Calculator {
         if (l.getLength() == 0) {
             l.setTotalPrice(l.getProduct().getPrice() * l.getQuantity());
         } else
-            l.setTotalPrice(l.getProduct().getPrice() * l.getLength() * l.getQuantity());
+            l.setTotalPrice(l.getProduct().getPrice() * l.getLength()/100 * l.getQuantity());
     }
 
     private void calcPrice() {

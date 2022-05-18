@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
 Created-By: IntelliJ IDEA
+<<<<<<< HEAD
 Built-By: gustavbogh
 Build-Jdk: version 17.0.1
+=======
+Built-By: tuff
+Build-Jdk: Oracle OpenJDK version 17.0.2
+>>>>>>> 3f38667e35ac6cbeadfd217bfb2877de3efa992e
 
