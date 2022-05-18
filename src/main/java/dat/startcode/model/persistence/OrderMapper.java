@@ -18,7 +18,7 @@ public class OrderMapper implements IOrderMapper {
     }
 
     public void insertOrder(Order order){
-        String sql = "INSERT INTO partslist_order (email, total_width, total_length, order_price, shed_id, accepted) VALUES (?, ?, ?, ?, ?, ?);\n";
+        String sql = "INSERT INTO partslist_order (email, total_width, total_length, order_price, shed_id, accepted) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
