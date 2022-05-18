@@ -20,25 +20,28 @@ public class PartsListLineMapper { ConnectionPool connectionPool;
         this.connectionPool = connectionPool;
     }
 
-    public ArrayList<PartsListLine> retrievePartsList() throws DatabaseException {
+    public ArrayList<PartsListLine> retrievePartsList(Order order) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
 
         ArrayList<PartsListLine> partsList = new ArrayList<>();
 
-        String sql = "SELECT partslist_order_id, email, total_width, total_length, order_price, shed_id, accepted FROM carport.partslist_order";
+        String sql = "SELECT p.product_name, l.product_length, l.quantity, u.unit_name, l.parts_price, l.description"+
+        "FROM partslist_line l"+
+        "INNER JOIN unit u ON l.unit_id"+
+        "INNER JOIN product p ON l.product_id" +
+        "WHERE partslist_order_id = ?";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    int partslistOrderId = rs.getInt("partslist_order_id");
-                    String email = rs.getString("email");
-                    int width = rs.getInt("total_width");
-                    int length = rs.getInt("total_length");
-                    int orderPrice = rs.getInt("order_price");
-                    int shedId = rs.getInt("shed_id");
+                    String productName = rs.getString("product_name");
+                    int length = rs.getInt("product_length");
+                    String unitName = rs.getString("unit_name");
+                    int orderPrice = rs.getInt("parts_price");
+                    String description = rs.getString("description");
                     boolean accepted = rs.getBoolean("accepted");
-                    Order order = new Order(partslistOrderId, email, width, length, orderPrice, shedId, accepted);
+//                    partsList.add(new PartsListLine())
                 }
             }
         } catch (SQLException ex) {
