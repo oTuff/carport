@@ -13,7 +13,7 @@ public class Calculator {
     private ArrayList<PartsListLine> partsList;
     private int postQuantity;
     private int rafterQuantity;
-    private int boardQuantity = 2;
+    private int boardQuantity =2;
     private int boardLength;
     private ArrayList<Product> products;
 
@@ -26,9 +26,7 @@ public class Calculator {
         this.products = products;
     }
 
-    //what to return?? void/partslis array/int??
-    public ArrayList<PartsListLine> calcPartsList() {
-
+    public void calcPartsList() {
         splitCheck();
 
         //todo fix description. get from description arraylist from db.
@@ -44,14 +42,15 @@ public class Calculator {
         partsList.add(new PartsListLine(products.get(2), width, rafterQuantity, "Remme i sider, sadles ned i stolper"));
 
         //stolper
-        calcPosts();
+        calcPostsQuantity();
+        partsList.add(new PartsListLine(products.get(3), 300, postQuantity, "Stolper nedgraves 90 cm. i jord"));
 
         //vandbræt
         partsList.add(new PartsListLine(products.get(4), boardLength, boardQuantity, "vandbrædt på stern i sider"));
         partsList.add(new PartsListLine(products.get(4), width, 1, "vandbrædt på stern i forende"));
 
         //tagplader
-        calcRoofing();
+        calcRoofingQuantity();
 
         //skruer mv.
         partsList.add(new PartsListLine(products.get(7), 0, 2, "Til vindkryds på spær"));
@@ -67,41 +66,33 @@ public class Calculator {
         calcPrice();
 
         order.setPartsListLines(partsList);
-        return partsList;
     }
 
-    private boolean splitCheck() {//if length is longer than 720 which is the longest board you need two boards.
-        boolean isSplit = false;
+    private void splitCheck() {//if length is longer than 720 which is the longest board you need two boards.
         if (length > 720) {
-            isSplit = true;
             boardQuantity = 4;//doubles the quantity
             boardLength = length / 2;//split the board length in half(a post should be in the middle)
         }
-        return isSplit;
     }
 
     private void calcRafterQuantity() {
         rafterQuantity = (int) Math.ceil(length / 52.0);
     }
 
-    private void calcPosts() {
+    private void calcPostsQuantity() {
         postQuantity = (int) Math.ceil(length / 300.0) * 2;
         if (postQuantity < 4) {
             postQuantity = 4;
         }
-
-        partsList.add(new PartsListLine(products.get(3), width, postQuantity, "Stolper nedgraves 90 cm. i jord"));
     }
 
-    private void calcRoofing() {
-        int roofQuantity = (int) Math.ceil(width / 100.0);
+    private void calcRoofingQuantity() {
+        int roofQuantity = (int) Math.ceil(width / 100.0);// roof is 120 wide and need to overlap with 20.
 
+        //you will always get 600cm roof. even if you only need 350.
         partsList.add(new PartsListLine(products.get(5), 600, roofQuantity, "tagplader monteres på spær"));
-        if (length > 600 && length <= 960) {
+        if (length > 600) {
             partsList.add(new PartsListLine(products.get(5), 360, roofQuantity, "tagplader monteres på spær"));
-            roofQuantity = roofQuantity * 2;
-        } else if (length > 960) {
-            partsList.add(new PartsListLine(products.get(5), 600, roofQuantity, "tagplader monteres på spær"));
             roofQuantity = roofQuantity * 2;
         }
         partsList.add(new PartsListLine(products.get(6), 0, (int) Math.ceil(roofQuantity / 4.0), "Skruer til tagplader"));
@@ -121,5 +112,13 @@ public class Calculator {
             price = price + l.getTotalPrice();
         }
         order.setOrderPrice(price);
+    }
+
+    public int getPostQuantity() {
+        return postQuantity;
+    }
+
+    public int getRafterQuantity() {
+        return rafterQuantity;
     }
 }
