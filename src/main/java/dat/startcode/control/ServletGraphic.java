@@ -58,7 +58,7 @@ public class ServletGraphic extends HttpServlet {
 
         SVG svg = new SVG(100, 50, "0 0 800 600", 600, 600);
 
-        SVG arrowSvg = new SVG(carportLength,carportWidth, "0 0 800 600", 600, 600);
+        SVG arrowSvg = new SVG(carportLength, carportWidth, "0 0 800 600", 600, 600);
 
 
         // Alle spær
@@ -83,8 +83,8 @@ public class ServletGraphic extends HttpServlet {
         }
 
         // Stålbånd på kryds
-        svg.addLine(2 + carportLength / (rafterQuantity - 1), 12, 2 + carportLength-(carportLength / (rafterQuantity - 1)), carportWidth - 12);
-        svg.addLine(2 + carportLength-(carportLength / (rafterQuantity - 1)), 12, 2 + carportLength / (rafterQuantity - 1), carportWidth - 12);
+        svg.addLine(2 + carportLength / (rafterQuantity - 1), 12, 2 + carportLength - (carportLength / (rafterQuantity - 1)), carportWidth - 12);
+        svg.addLine(2 + carportLength - (carportLength / (rafterQuantity - 1)), 12, 2 + carportLength / (rafterQuantity - 1), carportWidth - 12);
 
         // Arrows
         arrowSvg.addSvg(svg);
@@ -94,21 +94,29 @@ public class ServletGraphic extends HttpServlet {
         request.setAttribute("svgdrawing", arrowSvg.toString());
         String address = request.getParameter("address");
         request.setAttribute("order", order);
-        if (address != null) {
-            UserMapper userMapper = new UserMapper(connectionPool);
-            try {
-                User userSession = (User) request.getSession().getAttribute("user");
-                if (userSession != null) {
+
+        //Insert into database
+        OrderMapper orderMapper = new OrderMapper(connectionPool);
+
+
+        UserMapper userMapper = new UserMapper(connectionPool);
+        try {
+            User userSession = (User) request.getSession().getAttribute("user");
+            if (userSession != null) {
+                //int String email, int width, int length, int orderPrice, int shedId, boolean accepted
+                Order orderToInsert = new Order(0, userSession.getEmail(), carportWidth, carportLength, order.getOrderPrice(), 0, false);
+                orderMapper.insertOrder(orderToInsert);
+
+                if (address != null) {
                     if (!address.equals(userSession.getAddress())) {
                         userMapper.updateAddress(userSession.getEmail(), address);
                         User user = new User(userSession.getEmail(), userSession.getFullName(), userSession.getBalance(), address, userSession.getZipNr(), userSession.getRole());
                         request.getSession().setAttribute("user", user);
-
                     }
                 }
-            } catch (DatabaseException e) {
-                e.printStackTrace();
             }
+        } catch (DatabaseException e) {
+            e.printStackTrace();
         }
         request.getRequestDispatcher("WEB-INF/graphic.jsp").forward(request, response);
     }
