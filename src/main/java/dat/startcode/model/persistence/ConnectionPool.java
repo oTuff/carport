@@ -12,7 +12,7 @@ public class ConnectionPool {
     private HikariDataSource ds;
     private static String USER = "carport";
     private static String PASSWORD = "carport";
-    private static String URL = "jdbc:mysql://localhost:3306/carport";
+    private static String URL = "jdbc:mysql://localhost:3306/carport"+"?useUnicode=true&characterEncoding=UTF-8";
 
     public ConnectionPool() {
         this(USER, PASSWORD, URL);

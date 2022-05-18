@@ -10,7 +10,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><jsp:invoke fragment="header"/></title>
+    <title>
+        <jsp:invoke fragment="header"/>
+    </title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -23,7 +25,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.jsp">
-                <img src="${pageContext.request.contextPath}/images/Screenshot 2022-05-12 at 11.56.11.png" width="1250" height="125"/>
+                <img src="${pageContext.request.contextPath}/images/Screenshot 2022-05-12 at 11.56.11.png" width="1250"
+                     height="125"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,8 +42,6 @@
 </header>
 
 
-
-
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" rel="stylesheet">
         <div class="container">
@@ -51,25 +52,32 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <c:if test="${sessionScope.user.role == 'user' }">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/servletmyorders">MINE ORDRE</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/servletmyorders">| MINE ORDRE |</a>
                     </c:if>
                     <c:if test="${sessionScope.user.role == 'admin' }">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT</a>
-                        </c:if>
-                        <c:if test="${sessionScope.user.role == 'admin' }">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/servletadminpanel">| ADMIN |</a>
-                        </c:if>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/servletadminpanel">| ADMINPANEL</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user.role == 'admin' }">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/servletadminproducts">|
+                            PRODUKTLISTE |</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user.role == 'admin' }">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT
+                            |</a>
+                    </c:if>
 
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link">${sessionScope.user.email}</a>
                     </c:if>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">HJEM</a>
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">| HJEM |</a>
                     <c:if test="${sessionScope.user == null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND</a>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND |</a>
                     </c:if>
                     <c:if test="${sessionScope.user != null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">LOG UD</a>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">LOG UD
+                            |</a>
                     </c:if>
+                </div>
             </div>
         </div>
     </nav>
@@ -97,7 +105,8 @@
                 info@johannesfog.dk</p>
         </div>
         <div class="col">
-            <jsp:invoke fragment="footer"/><br/>
+            <jsp:invoke fragment="footer"/>
+            <br/>
             <p>&copy; 2022 Cphbusiness</p>
         </div>
         <div class="col">
