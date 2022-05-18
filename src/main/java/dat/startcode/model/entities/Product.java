@@ -1,6 +1,7 @@
 package dat.startcode.model.entities;
 
 public class Product {
+    private int productId;
     private String name;
     private int price;
     private String unit;
@@ -33,5 +34,9 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getProductId() {
+        return productId;
     }
 }
