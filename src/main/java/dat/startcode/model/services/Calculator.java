@@ -13,7 +13,7 @@ public class Calculator {
     private ArrayList<PartsListLine> partsList;
     private int postQuantity;
     private int rafterQuantity;
-    private int boardQuantity =2;
+    private int boardQuantity = 2;
     private int boardLength;
     private ArrayList<Product> products;
 
@@ -50,7 +50,7 @@ public class Calculator {
         partsList.add(new PartsListLine(products.get(4), width, 1, "vandbrædt på stern i forende"));
 
         //tagplader
-        calcRoofingQuantity();
+        calcRoofing();
 
         //skruer mv.
         partsList.add(new PartsListLine(products.get(7), 0, 2, "Til vindkryds på spær"));
@@ -86,7 +86,7 @@ public class Calculator {
         }
     }
 
-    private void calcRoofingQuantity() {
+    private void calcRoofing() {
         int roofQuantity = (int) Math.ceil(width / 100.0);// roof is 120 wide and need to overlap with 20.
 
         //you will always get 600cm roof. even if you only need 350.
