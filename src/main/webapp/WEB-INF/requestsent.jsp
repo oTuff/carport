@@ -18,9 +18,9 @@
                     <br>
                     <br>
                 </h1>
-                <p>Du kan finde og betale under <a href="">ordre</a> når din forespørgsel er blevet accepteret af vores professionelle håndværkere.</p>
+                <p>Du kan finde og betale under <a href="${pageContext.request.contextPath}/servletmyorders">ordre</a> når din forespørgsel er blevet accepteret af vores professionelle håndværkere.</p>
 
-                <a href="servletmyorders">
+                <a href="${pageContext.request.contextPath}/servletmyorders">
                     <button class="btn btn-primary" >Mine ordrer</button>
                 </a>
             </div>
