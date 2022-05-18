@@ -11,9 +11,9 @@ public class Calculator {
     private int width;
     private int length;
     private ArrayList<PartsListLine> partsList;
-    private int postQuantity = 2;
+    private int postQuantity;
     private int rafterQuantity;
-    private int boardQuantity;
+    private int boardQuantity =2;
     private int boardLength;
     private ArrayList<Product> products;
 
@@ -43,7 +43,7 @@ public class Calculator {
 
         //stolper
         calcPostsQuantity();
-        partsList.add(new PartsListLine(products.get(3), width, postQuantity, "Stolper nedgraves 90 cm. i jord"));
+        partsList.add(new PartsListLine(products.get(3), 300, postQuantity, "Stolper nedgraves 90 cm. i jord"));
 
         //vandbræt
         partsList.add(new PartsListLine(products.get(4), boardLength, boardQuantity, "vandbrædt på stern i sider"));
