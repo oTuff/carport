@@ -1,6 +1,7 @@
 package dat.startcode.model.entities;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Order {
     private User user;
@@ -119,5 +120,33 @@ public class Order {
 
     public void setAccepted(boolean accepted) {
         this.accepted = accepted;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+        Order order = (Order) o;
+        return getPartslistOrderId() == order.getPartslistOrderId() && getWidth() == order.getWidth() && getLength() == order.getLength() && getOrderPrice() == order.getOrderPrice() && getShedId() == order.getShedId() && isAccepted() == order.isAccepted() && Objects.equals(getUser(), order.getUser()) && Objects.equals(getEmail(), order.getEmail()) && Objects.equals(getPartsListLines(), order.getPartsListLines());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUser(), getPartslistOrderId(), getEmail(), getWidth(), getLength(), getOrderPrice(), getShedId(), isAccepted(), getPartsListLines());
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "user=" + user +
+                ", partslistOrderId=" + partslistOrderId +
+                ", email='" + email + '\'' +
+                ", width=" + width +
+                ", length=" + length +
+                ", orderPrice=" + orderPrice +
+                ", shedId=" + shedId +
+                ", accepted=" + accepted +
+                ", partsListLines=" + partsListLines +
+                '}';
     }
 }

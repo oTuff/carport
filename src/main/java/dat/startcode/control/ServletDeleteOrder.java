@@ -1,6 +1,7 @@
 package dat.startcode.control;
 
 import dat.startcode.model.config.ApplicationStart;
+import dat.startcode.model.exceptions.DatabaseException;
 import dat.startcode.model.persistence.ConnectionPool;
 import dat.startcode.model.persistence.OrderMapper;
 
@@ -27,7 +28,11 @@ public class ServletDeleteOrder extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String partslistOrderId = request.getParameter("partslistOrderId");
         OrderMapper orderMapper = new OrderMapper(connectionPool);
-        orderMapper.deleteOrder(Integer.parseInt(partslistOrderId));
+        try {
+            orderMapper.deleteOrder(Integer.parseInt(partslistOrderId));
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+        }
         response.sendRedirect(request.getContextPath() + "/servletadminpanel");
     }
 }
