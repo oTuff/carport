@@ -66,67 +66,77 @@
                 <label for="shedWidth">Skur bredde</label>
                 <select class="form-control" id="shedWidth" name="shedWidth" title="Skur bredde">
                     <option selected="selected" value="Vælg bredde">Vælg bredde</option>
-                        <option value="210">210 cm</option>
-                        <option value="240">240 cm</option>
-                        <option value="270">270 cm</option>
-                        <option value="300">300 cm</option>
-                        <option value="330">330 cm</option>
-                        <option value="360">360 cm</option>
-                        <option value="390">390 cm</option>
-                        <option value="420">420 cm</option>
-                        <option value="450">450 cm</option>
-                        <option value="480">480 cm</option>
-                        <option value="510">510 cm</option>
-                        <option value="540">540 cm</option>
-                        <option value="570">570 cm</option>
-                        <option value="600">600 cm</option>
-                        <option value="630">630 cm</option>
-                        <option value="660">660 cm</option>
-                        <option value="690">690 cm</option>
-                        <option value="720">720 cm</option>
-                    </select>
+                    <option value="210">210 cm</option>
+                    <option value="240">240 cm</option>
+                    <option value="270">270 cm</option>
+                    <option value="300">300 cm</option>
+                    <option value="330">330 cm</option>
+                    <option value="360">360 cm</option>
+                    <option value="390">390 cm</option>
+                    <option value="420">420 cm</option>
+                    <option value="450">450 cm</option>
+                    <option value="480">480 cm</option>
+                    <option value="510">510 cm</option>
+                    <option value="540">540 cm</option>
+                    <option value="570">570 cm</option>
+                    <option value="600">600 cm</option>
+                    <option value="630">630 cm</option>
+                    <option value="660">660 cm</option>
+                    <option value="690">690 cm</option>
+                    <option value="720">720 cm</option>
+                </select>
 
                 <label for="shedLength">Skur længde</label>
                 <select class="form-control" id="shedLength" name="shedLength" title="Skur længde">
                     <option selected="selected" value="Vælg længde">Vælg længde</option>
-                        <option value="150">150 cm</option>
-                        <option value="180">180 cm</option>
-                        <option value="210">210 cm</option>
-                        <option value="240">240 cm</option>
-                        <option value="270">270 cm</option>
-                        <option value="300">300 cm</option>
-                        <option value="330">330 cm</option>
-                        <option value="360">360 cm</option>
-                        <option value="390">390 cm</option>
-                        <option value="420">420 cm</option>
-                        <option value="450">450 cm</option>
-                        <option value="480">480 cm</option>
-                        <option value="510">510 cm</option>
-                        <option value="540">540 cm</option>
-                        <option value="570">570 cm</option>
-                        <option value="600">600 cm</option>
-                        <option value="630">630 cm</option>
-                        <option value="660">660 cm</option>
-                        <option value="690">690 cm</option>
-                    </select>
+                    <option value="150">150 cm</option>
+                    <option value="180">180 cm</option>
+                    <option value="210">210 cm</option>
+                    <option value="240">240 cm</option>
+                    <option value="270">270 cm</option>
+                    <option value="300">300 cm</option>
+                    <option value="330">330 cm</option>
+                    <option value="360">360 cm</option>
+                    <option value="390">390 cm</option>
+                    <option value="420">420 cm</option>
+                    <option value="450">450 cm</option>
+                    <option value="480">480 cm</option>
+                    <option value="510">510 cm</option>
+                    <option value="540">540 cm</option>
+                    <option value="570">570 cm</option>
+                    <option value="600">600 cm</option>
+                    <option value="630">630 cm</option>
+                    <option value="660">660 cm</option>
+                    <option value="690">690 cm</option>
+                </select>
                 </select>
             </div>
 
             <br>
 
             <label for="address">Leveringsadresse</label>
-            <input type="text" class="form-control"  disabled value="${sessionScope.user.address}" placeholder="Adresse" id="address" name="address" required>
+            <input type="text" class="form-control" disabled value="${sessionScope.user.address}" placeholder="Adresse"
+                   id="address" name="address" required>
             <input type="checkbox" onclick="letUserChangeAddress()" id="addressCheckbox">
             <label for="addressCheckbox">Levering til anden adresse</label>
             <br>
             <br>
 
+<<<<<<< HEAD
             <c:if test="${sessionScope.user != null}">
                 <button type="submit" class="btn btn-primary" disabled="true" value="Næste" style="width:25%; font-weight: bold;">
+=======
+            <c:if test="${sessionScope.user == null}">
+                <button name="næstelogind" id="næstelogind" value="submit" style="width:25%; font-weight: bold" formaction="login.jsp">
+                    Log ind
+                </button>
+>>>>>>> c9279d67c897c0ac4ff6466792637aa9332f0726
             </c:if>
 
-            <c:if test="${sessionScope.user == null}">
-                <input type="submit" class="btn btn-primary" value="Næste" style="width:25%; font-weight: bold;">
+            <c:if test="${sessionScope.user != null}">
+                <button name="næste" id="næste" value="submit" style="width:25%; font-weight: bold">
+                    Næste
+                </button>
             </c:if>
 
         </form>
@@ -135,17 +145,17 @@
             function hideSkurForm() {
                 var checkBox = document.getElementById("skurCheckbox");
                 var text = document.getElementById("skur");
-                if (checkBox.checked == true){
+                if (checkBox.checked == true) {
                     text.style.display = "block";
                 } else {
                     text.style.display = "none";
                 }
             }
 
-            function letUserChangeAddress(){
+            function letUserChangeAddress() {
                 var checkBox = document.getElementById("addressCheckbox");
                 var addressBar = document.getElementById("address");
-                if (checkBox.checked == true){
+                if (checkBox.checked == true) {
                     addressBar.disabled = false;
                     addressBar.value = "";
                     addressBar.placeholder = "Leveringsadresse";

@@ -17,7 +17,7 @@ public class OrderMapper implements IOrderMapper {
         this.connectionPool = connectionPool;
     }
 
-    public void insertOrder(Order order){
+    public boolean insertOrder(Order order){
         String sql = "INSERT INTO partslist_order (email, total_width, total_length, order_price, accepted) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection connection = connectionPool.getConnection()) {
@@ -29,6 +29,7 @@ public class OrderMapper implements IOrderMapper {
                 ps.setInt(5, 0);
                 ps.addBatch();
                 ps.executeBatch();
+                return true;
             }
         } catch (SQLException ex) {
             try {
@@ -36,6 +37,7 @@ public class OrderMapper implements IOrderMapper {
             } catch (DatabaseException e) {
                 e.printStackTrace();
             }
+            return false;
         }
     }
 
