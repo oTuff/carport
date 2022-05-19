@@ -82,8 +82,9 @@ public class PartsListLine {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public int setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
+        return totalPrice;
     }
 
     @Override
