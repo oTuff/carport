@@ -15,6 +15,7 @@ public class Calculator {
     private int rafterQuantity;
     private int boardQuantity = 2;
     private int boardLength;
+    private int roofQuantity;
     private ArrayList<Product> products;
 
     public Calculator(Order order, ArrayList<Product> products) {
@@ -87,7 +88,7 @@ public class Calculator {
     }
 
     private void calcRoofing() {
-        int roofQuantity = (int) Math.ceil(width / 100.0);// roof is 120 wide and need to overlap with 20.
+        roofQuantity = (int) Math.ceil(width / 100.0);// roof is 120 wide and need to overlap with 20.
 
         //you will always get 600cm roof. even if you only need 350.
         partsList.add(new PartsListLine(products.get(5), 600, roofQuantity, "tagplader monteres på spær"));
@@ -98,11 +99,15 @@ public class Calculator {
         partsList.add(new PartsListLine(products.get(6), 0, (int) Math.ceil(roofQuantity / 4.0), "Skruer til tagplader"));
     }
 
-    private void calcLinePrice(PartsListLine l) {//calculates the price by multiplying the product price with quantity and the length(partsListLine has a length)
+    public int calcLinePrice(PartsListLine l) {//calculates the price by multiplying the product price with quantity and the length(partsListLine has a length)
+        int price=0;
         if (l.getLength() == 0) {
-            l.setTotalPrice(l.getProduct().getPrice() * l.getQuantity());
-        } else
-            l.setTotalPrice(l.getProduct().getPrice() * l.getLength()/100 * l.getQuantity());
+           price = l.setTotalPrice(l.getProduct().getPrice() * l.getQuantity());
+
+        } else {
+            price = l.setTotalPrice(l.getProduct().getPrice() * l.getLength() / 100 * l.getQuantity());
+        }
+        return price;
     }
 
     private void calcPrice() {
@@ -120,5 +125,17 @@ public class Calculator {
 
     public int getRafterQuantity() {
         return rafterQuantity;
+    }
+
+    public int getBoardQuantity() {
+        return boardQuantity;
+    }
+
+    public int getBoardLength() {
+        return boardLength;
+    }
+
+    public int getRoofQuantity() {
+        return roofQuantity;
     }
 }

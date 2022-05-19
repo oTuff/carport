@@ -2,6 +2,8 @@ package dat.startcode.model.services;
 
 import dat.startcode.model.entities.Order;
 import dat.startcode.model.entities.Product;
+import dat.startcode.model.persistence.ConnectionPool;
+import dat.startcode.model.persistence.ProductMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,10 +20,16 @@ class CalculatorTest {
 
     @BeforeAll
     public static void setUpClass() {
-        order = new Order(null,600,720);
-        order2 = new Order(null,600,500);
-        calculator=new Calculator(order,products);
-        calculator2=new Calculator(order2,products);
+        order = new Order(null, 600, 780);
+        order2 = new Order(null, 600, 600);
+        products = new ArrayList<>();
+        calculator = new Calculator(order, products);
+        calculator2 = new Calculator(order2, products);
+
+        for (int i = 0; i < 16; i++) {
+            products.add(new Product("product", i, "."));
+        }
+
     }
 
     @BeforeEach
@@ -32,32 +40,40 @@ class CalculatorTest {
 
     @Test
     void numberOfPartsListLines() {
-        Assertions.assertEquals(21,order.getPartsListLines().size());
+        Assertions.assertEquals(21, order.getPartsListLines().size());
+        Assertions.assertEquals(20, order2.getPartsListLines().size());
     }
 
     @Test
     void calcRafterQuantity() {
-        Assertions.assertEquals(14,order.getPartsListLines().get(5).getQuantity());
+        Assertions.assertEquals(15, calculator.getRafterQuantity());
+        Assertions.assertEquals(12, calculator2.getRafterQuantity());
     }
 
     @Test
     void calcPosts() {
-        Assertions.assertEquals(6,order.getPartsListLines().get(6).getQuantity());
-        Assertions.assertEquals(4,order2.getPartsListLines().get(6).getQuantity());
+        Assertions.assertEquals(6, calculator.getPostQuantity());
+        Assertions.assertEquals(4, calculator2.getPostQuantity());
+    }
+
+    @Test
+    void splitCheck() {
+        Assertions.assertEquals(4, calculator.getBoardQuantity());
+        Assertions.assertEquals(2, calculator2.getBoardQuantity());
+
+        Assertions.assertEquals(390, calculator.getBoardLength());
+        Assertions.assertEquals(600, calculator2.getBoardLength());
     }
 
     @Test
     void calcRoofing() {
-
+        Assertions.assertEquals(12, calculator.getRoofQuantity());
+        Assertions.assertEquals(6, calculator2.getRoofQuantity());
     }
 
     @Test
-    void getProduct() {
-
-    }
-
-    @Test
-    void getDescription() {
-
+    void calcPrice() {
+        Assertions.assertEquals(180, calculator.calcLinePrice(order.getPartsListLines().get(5)));
+        Assertions.assertEquals(14, calculator.calcLinePrice(order.getPartsListLines().get(12)));
     }
 }
