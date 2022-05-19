@@ -290,6 +290,8 @@ CREATE TABLE carport_test.zip LIKE carport.zip;
 CREATE TABLE carport_test.partslist_line LIKE carport.partslist_line;
 CREATE TABLE carport_test.partslist_order LIKE carport.partslist_order;
 CREATE TABLE carport_test.product LIKE carport.product;
+CREATE TABLE carport_test.shed LIKE carport.shed;
+CREATE TABLE carport_test.unit LIKE carport.unit;
 
 
 SET SQL_MODE = @OLD_SQL_MODE;
