@@ -30,6 +30,13 @@ public class PartsListLine {
         this.description = description;
     }
 
+    public PartsListLine(Product product, int length, int quantity, String description, int totalPrice) {
+        this.product = product;
+        this.length = length;
+        this.quantity = quantity;
+        this.description = description;
+        this.totalPrice = totalPrice;
+    }
 
     public Product getProduct() {
         return product;
@@ -75,8 +82,9 @@ public class PartsListLine {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public int setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
+        return totalPrice;
     }
 
     @Override

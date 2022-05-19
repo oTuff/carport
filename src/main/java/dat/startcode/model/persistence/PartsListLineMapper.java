@@ -2,6 +2,7 @@ package dat.startcode.model.persistence;
 
 import dat.startcode.model.entities.Order;
 import dat.startcode.model.entities.PartsListLine;
+import dat.startcode.model.entities.Product;
 import dat.startcode.model.entities.User;
 import dat.startcode.model.exceptions.DatabaseException;
 
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,31 +22,61 @@ public class PartsListLineMapper { ConnectionPool connectionPool;
         this.connectionPool = connectionPool;
     }
 
-    public ArrayList<PartsListLine> retrievePartsList() throws DatabaseException {
+    public ArrayList<PartsListLine> retrievePartsList(Order order) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
 
         ArrayList<PartsListLine> partsList = new ArrayList<>();
 
-        String sql = "SELECT partslist_order_id, email, total_width, total_length, order_price, shed_id, accepted FROM carport.partslist_order";
+        String sql = "SELECT p.product_name, l.product_length, l.quantity, u.unit_name, l.parts_price, l.description"+
+        "FROM partslist_line l"+
+        "INNER JOIN unit u ON l.unit_id"+
+        "INNER JOIN product p ON l.product_id" +
+        "WHERE partslist_order_id = ?";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1,order.getPartslistOrderId());
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    int partslistOrderId = rs.getInt("partslist_order_id");
-                    String email = rs.getString("email");
-                    int width = rs.getInt("total_width");
-                    int length = rs.getInt("total_length");
-                    int orderPrice = rs.getInt("order_price");
-                    int shedId = rs.getInt("shed_id");
+                    String productName = rs.getString("product_name");
+                    int length = rs.getInt("product_length");
+                    int quantity = rs.getInt("quantity");
+                    String unitName = rs.getString("unit_name");
+                    int orderPrice = rs.getInt("parts_price");
+                    String description = rs.getString("description");
                     boolean accepted = rs.getBoolean("accepted");
-                    Order order = new Order(partslistOrderId, email, width, length, orderPrice, shedId, accepted);
+                    Product product = new Product(productName,0,unitName);
+                    partsList.add(new PartsListLine(product,length,quantity,description,orderPrice));
                 }
             }
         } catch (SQLException ex) {
             throw new DatabaseException(ex, "Error while loading 'carport' from Database.");
         }
         return partsList;
+    }
+
+    public void createPartsListLine(Order order, PartsListLine partsListLine) throws DatabaseException {
+        Logger.getLogger("web").log(Level.INFO, "");
+
+        String sql = "insert into partslist_line (product_id, partslist_order_id, product_length, quantity, unit_id, parts_price, description) values (?,?,?,?,?,?,?)";
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, partsListLine.getProduct().getProductId());
+                ps.setInt(2,order.getPartslistOrderId());
+                ps.setInt(3, partsListLine.getLength());
+                ps.setInt(4, partsListLine.getQuantity());
+                // how to get unit_id??, måske bare brug product id til at få unit_id og fjerne fra partslist_line
+                ps.setInt(5, 1);
+                ps.setInt(6, partsListLine.getTotalPrice());
+                ps.setString(7, partsListLine.getDescription());
+                int rowsAffected = ps.executeUpdate();
+                {
+                    throw new DatabaseException(" ");
+                }
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Could not insert partslist into database");
+        }
     }
 
 }
