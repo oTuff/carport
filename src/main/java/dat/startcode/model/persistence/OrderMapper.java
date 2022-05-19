@@ -4,6 +4,7 @@ import dat.startcode.model.entities.Order;
 import dat.startcode.model.entities.User;
 import dat.startcode.model.exceptions.DatabaseException;
 
+import javax.xml.crypto.Data;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class OrderMapper implements IOrderMapper {
         this.connectionPool = connectionPool;
     }
 
-    public boolean insertOrder(Order order){
+    public boolean insertOrder(Order order) throws DatabaseException {
         String sql = "INSERT INTO partslist_order (email, total_width, total_length, order_price, accepted) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection connection = connectionPool.getConnection()) {
@@ -129,7 +130,7 @@ public class OrderMapper implements IOrderMapper {
     }
 
     @Override
-    public void acceptOrder(int partslistOrderId) {
+    public void acceptOrder(int partslistOrderId) throws DatabaseException {
         String sql = "UPDATE partslist_order SET accepted = 1 WHERE partslist_order_id = " + partslistOrderId;
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -145,7 +146,7 @@ public class OrderMapper implements IOrderMapper {
         }
     }
 
-    public void deleteOrder(int partslistOrderId) {
+    public void deleteOrder(int partslistOrderId) throws DatabaseException {
         String sql = "DELETE FROM partslist_order WHERE partslist_order_id=" + partslistOrderId;
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {

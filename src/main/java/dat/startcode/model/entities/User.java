@@ -43,6 +43,15 @@ public class User {
 
     }
 
+    public User(String email, String fullName, String password, String address, int zipNr, String role) {
+        this.email = email;
+        this.fullName = fullName;
+        this.password = password;
+        this.address = address;
+        this.zipNr = zipNr;
+        this.role = role;
+    }
+
     public String getEmail() {
         return email;
     }
