@@ -1,10 +1,8 @@
 package dat.startcode.control;
 import dat.startcode.model.config.ApplicationStart;
-import dat.startcode.model.entities.Order;
 import dat.startcode.model.entities.Product;
 import dat.startcode.model.exceptions.DatabaseException;
 import dat.startcode.model.persistence.ConnectionPool;
-import dat.startcode.model.persistence.OrderMapper;
 import dat.startcode.model.persistence.ProductMapper;
 
 import javax.servlet.*;

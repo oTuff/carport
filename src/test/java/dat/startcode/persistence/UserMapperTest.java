@@ -15,9 +15,9 @@ import java.sql.Statement;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserMapperTest {
-    private final static String USER = "caport";
+    private final static String USER = "carport";
     private final static String PASSWORD = "carport";
-    private final static String URL = "jdbc:mysql://localhost:3306/startcode_test?serverTimezone=CET&allowPublicKeyRetrieval=true&useSSL=false";
+    private final static String URL = "jdbc:mysql://localhost:3306/carport_test?serverTimezone=CET&allowPublicKeyRetrieval=true&useSSL=false";
 
     private static ConnectionPool connectionPool;
     private static UserMapper userMapper;
@@ -35,8 +35,8 @@ class UserMapperTest {
                 // Remove all rows from all tables
                 stmt.execute("delete from user");
                 // Indsæt et par brugere
-                stmt.execute("insert into user (username, password, role) " +
-                        "values ('user','1234','user'),('admin','1234','admin'), ('ben','1234','user')");
+                stmt.execute("insert into user (email, full_name, password, balance, address, zip_nr, role) " +
+                        "values ('a@a.dk', 'Adminbruger', '1234', '10000', 'Nørgaardsvej 30', '2800', 'admin'), ('b@b.dk', 'Testbruger', '1234', '10000', 'Nørgaardsvej 30', '2800', 'user')");
             }
         } catch (SQLException throwables) {
             System.out.println(throwables.getMessage());
@@ -55,28 +55,28 @@ class UserMapperTest {
 
     @Test
     void login() throws DatabaseException {
-        User expectedUser = new User("user", "1234", "user");
-        User actualUser = userMapper.login("user", "1234");
+        User expectedUser = new User("a@a.dk", "Adminbruger", "1234",10000, "Nørgaardsvej 30", 2800, "admin");
+        User actualUser = userMapper.login("a@a.dk", "1234");
         assertEquals(expectedUser, actualUser);
     }
 
     @Test
     void invalidPasswordLogin() throws DatabaseException {
-        assertThrows(DatabaseException.class, () -> userMapper.login("user", "123"));
+        assertThrows(DatabaseException.class, () -> userMapper.login("b@b.dk", "123"));
     }
 
     @Test
     void invalidUserNameLogin() throws DatabaseException {
         assertThrows(DatabaseException.class, () -> userMapper.login("bob", "1234"));
-//    }
-//
+    }
+
 //    @Test
 //    void createUser() throws DatabaseException {
-//        User newUser = userMapper.createUser("jill", "1234", "user");
-//        User logInUser = userMapper.login("jill", "1234");
-//        User expectedUser = new User("jill", "1234", "user");
+//        User newUser = userMapper.createUser("c@c.dk", "TestTest", "12345",10000, "Nørgaardsvej 30", 2800, "user");
+//        User logInUser = userMapper.login("c@c.dk", "12345");
+//        User expectedUser = new User("c@c.dk", "TestTest", "12345",10000, "Nørgaardsvej 30", 2800, "user");
 //        assertEquals(expectedUser, newUser);
 //        assertEquals(expectedUser, logInUser);
-
-    }
+//
+//    }
 }

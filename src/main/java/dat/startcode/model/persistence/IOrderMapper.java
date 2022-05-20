@@ -7,15 +7,15 @@ import dat.startcode.model.exceptions.DatabaseException;
 import java.util.List;
 
 public interface IOrderMapper {
-    public boolean insertOrder(Order order);
+    public boolean insertOrder(Order order) throws DatabaseException;
 
     public List<Order> retrieveAllOrders() throws DatabaseException;
 
     public List<Order> retrieveMyOrders(User user) throws DatabaseException;
 
-    public void acceptOrder(int partslistOrderId);
+    public void acceptOrder(int partslistOrderId) throws DatabaseException;
 
     public List<Order> retrieveOrder(int partslistOrderId) throws DatabaseException;
 
-    public void deleteOrder(int partslistOrderId);
+    public void deleteOrder(int partslistOrderId) throws DatabaseException;
 }

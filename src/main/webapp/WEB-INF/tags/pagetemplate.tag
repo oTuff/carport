@@ -42,114 +42,51 @@
     </nav>
 </header>
 
-<%--<header>--%>
-<%--    <nav class="navbar navbar-expand-md navbar-dark bg-dark" rel="stylesheet">--%>
-<%--        <div class="container">--%>
-<%--            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"--%>
-<%--                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">--%>
-<%--                <span class="navbar-toggler-icon"></span>--%>
-<%--            </button>--%>
+<header>
+    <nav class="navbar navbar-expand-md navbar-light bg-light" rel="stylesheet">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<%--            &lt;%&ndash;        Left nav side&ndash;%&gt;--%>
-<%--            <div class="navbar-collapse collapse w-100">--%>
-<%--                <ul class="navbar-nav mr-auto">--%>
-<%--                    <li class="nav-item active">--%>
-<%--                        <c:if test="${sessionScope.user.role == 'user' }">--%>
-<%--                            <a class="nav-link" href="${pageContext.request.contextPath}/servletmyorders">| MINE ORDRE--%>
-<%--                                |</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <c:if test="${sessionScope.user.role == 'admin' }">--%>
-<%--                            <a class="nav-link" href="${pageContext.request.contextPath}/servletadminpanel">|--%>
-<%--                                ADMINPANEL</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <c:if test="${sessionScope.user.role == 'admin' }">--%>
-<%--                            <a class="nav-link" href="${pageContext.request.contextPath}/servletadminproducts">|--%>
-<%--                                PRODUKTLISTE |</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <c:if test="${sessionScope.user.role == 'admin' }">--%>
-<%--                            <a class="nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT--%>
-<%--                                |</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
-<%--            </div>--%>
-
-<%--            &lt;%&ndash;        Right nav side&ndash;%&gt;--%>
-<%--            <div class="navbar-collapse collapse w-600">--%>
-<%--                <ul class="navbar-nav ml-auto">--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <c:if test="${sessionScope.user != null }">--%>
-<%--                            <a class="nav-item nav-link">${sessionScope.user.email}</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/index.jsp">| HJEM |</a>--%>
-<%--                        <c:if test="${sessionScope.user == null }">--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <c:if test="${sessionScope.user == null }">--%>
-<%--                            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND--%>
-<%--                                |</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <c:if test="${sessionScope.user != null }">--%>
-<%--                            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">LOG UD--%>
-<%--                                |</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
-<%--            </div>--%>
-<%--    </nav>--%>
-<%--</header>--%>
-
-
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" rel="stylesheet">
-                <div class="container">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <c:if test="${sessionScope.user.role == 'user' }">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/servletmyorders">| MINE ORDRE |</a>
-                            </c:if>
-                            <c:if test="${sessionScope.user.role == 'admin' }">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/servletadminpanel">| ADMINPANEL</a>
-                            </c:if>
-                            <c:if test="${sessionScope.user.role == 'admin' }">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/servletadminproducts">|
-                                    PRODUKTLISTE |</a>
-                            </c:if>
-                            <c:if test="${sessionScope.user.role == 'admin' }">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT
-                                    |</a>
-                            </c:if>
-
-                            <c:if test="${sessionScope.user != null }">
-                                <a class="nav-item nav-link">${sessionScope.user.email}</a>
-                            </c:if>
-                            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">| HJEM |</a>
-                            <c:if test="${sessionScope.user == null }">
-                                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND |</a>
-                            </c:if>
-                            <c:if test="${sessionScope.user != null }">
-                                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">LOG UD
-                                    |</a>
-                            </c:if>
-                        </div>
-                    </div>
+            <div class="collapse navbar-collapse justify-content-start" id="navbarNavAltMarkup">
+                <%--LEFT NAV SIDE--%>
+                <div class="navbar-nav mr-auto">
+                    <c:if test="${sessionScope.user.role == 'user' }">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/servletmyorders">| MINE ORDRE |</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user.role == 'admin' }">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/servletadminpanel">| ADMINPANEL</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user.role == 'admin' }">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/servletadminproducts">|
+                            PRODUKTLISTE |</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user.role == 'admin' }">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT
+                            |</a>
+                    </c:if>
                 </div>
-            </nav>
-        </header>
+            </div>
+
+            <%--RIGHT NAV SIDE--%>
+            <div class="navbar-nav ml-auto">
+                <c:if test="${sessionScope.user != null }">
+                    <a class="nav-item nav-link">${sessionScope.user.email}</a>
+                </c:if>
+                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">| HJEM |</a>
+                <c:if test="${sessionScope.user == null }">
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND |</a>
+                </c:if>
+                <c:if test="${sessionScope.user != null }">
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">LOG UD
+                        |</a>
+                </c:if>
+            </div>
+        </div>
+    </nav>
+</header>
 
 
 <div id="body" class="container mt-4" style="min-height: 400px;">
