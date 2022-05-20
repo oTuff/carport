@@ -29,8 +29,8 @@ public class OrderMapper implements IOrderMapper {
                 ps.setInt(5, 0);
                 ps.addBatch();
                 ps.executeBatch();
-                return true;
             }
+            return true;
         } catch (SQLException ex) {
             try {
                 throw new DatabaseException(ex, "Could not insert order to database");

@@ -3,6 +3,7 @@ package dat.startcode.model.persistence;
 import dat.startcode.model.entities.User;
 import dat.startcode.model.exceptions.DatabaseException;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,6 +108,10 @@ public class UserMapper implements IUserMapper {
 
     public void updateAddress(String email, String address) throws DatabaseException {
         User user;
+        String rawString = address;
+        byte[] bytes = rawString.getBytes(StandardCharsets.UTF_8);
+        String utfEncoding = new String(bytes, StandardCharsets.UTF_8);
+        System.out.println(utfEncoding);
         String sql = "UPDATE user SET address = \"" + address +"\" WHERE email = \"" + email + "\"";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
