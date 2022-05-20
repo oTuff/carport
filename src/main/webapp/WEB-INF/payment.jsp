@@ -89,6 +89,29 @@
                     </table>
                 </form>
             </div>
+            <div>stykliste</div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>produkt</th>
+                    <th>længde</th>
+                    <th>antal</th>
+                    <th>enhed</th>
+                    <th>beskrivelse</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="line" items="${requestScope.partsList}">
+                    <tr>
+                        <td>${line.product.name}</td>
+                        <td>${line.length}</td>
+                        <td>${line.quantity}</td>
+                        <td>${line.product.unit}</td>
+                        <td>${line.description}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
         </jsp:body>
     </t:pagetemplate>
 </div>
