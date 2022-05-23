@@ -122,17 +122,15 @@
             <br>
             <br>
 
-<<<<<<< HEAD
+
             <c:if test="${sessionScope.user != null}">
                 <button type="submit" class="btn btn-primary" disabled="true" value="Næste" style="width:25%; font-weight: bold;">
-            </c:if>
-
-
-=======
+                    </c:if>
             <c:if test="${sessionScope.user == null}">
                 <button name="næstelogind" id="næstelogind" value="submit" style="width:25%; font-weight: bold" formaction="login.jsp">
                     Log ind
                 </button>
+
             </c:if>
 
             <c:if test="${sessionScope.user != null}">
@@ -140,7 +138,6 @@
                     Næste
                 </button>
             </c:if>
->>>>>>> c9279d67c897c0ac4ff6466792637aa9332f0726
 
         </form>
 
