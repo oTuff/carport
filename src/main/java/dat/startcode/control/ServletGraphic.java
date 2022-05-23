@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-@WebServlet(name = "ServletGraphic", value = "/ServletGraphic")
+@WebServlet(name = "ServletGraphic", value = "/servletgraphic")
 public class ServletGraphic extends HttpServlet {
     private ConnectionPool connectionPool;
 
