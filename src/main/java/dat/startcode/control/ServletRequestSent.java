@@ -30,7 +30,11 @@ public class ServletRequestSent extends HttpServlet {
         OrderMapper orderMapper = new OrderMapper(connectionPool);
         PartsListLineMapper partsListLineMapper = new PartsListLineMapper(connectionPool);
 
-        orderMapper.insertOrder(order);
+        try {
+            orderMapper.insertOrder(order);
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+        }
 
         for (PartsListLine p : order.getPartsListLines()) {
             try {
