@@ -2,8 +2,6 @@ package dat.startcode.model.services;
 
 import dat.startcode.model.entities.Order;
 import dat.startcode.model.entities.Product;
-import dat.startcode.model.persistence.ConnectionPool;
-import dat.startcode.model.persistence.ProductMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

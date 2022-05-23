@@ -2,6 +2,7 @@ package dat.startcode.control;
 
 import dat.startcode.model.config.ApplicationStart;
 import dat.startcode.model.entities.Order;
+import dat.startcode.model.exceptions.DatabaseException;
 import dat.startcode.model.persistence.ConnectionPool;
 import dat.startcode.model.persistence.OrderMapper;
 
@@ -21,11 +22,13 @@ public class ServletRequestSent extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         Order order = (Order) request.getSession().getAttribute("order");
         OrderMapper orderMapper = new OrderMapper(connectionPool);
-        orderMapper.insertOrder(order);
+        try {
+            orderMapper.insertOrder(order);
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+        }
         System.out.println(order.getEmail() + "\n" +
                 order.getWidth() + "\n" +
                 order.getLength() + "\n" +

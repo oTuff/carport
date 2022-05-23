@@ -26,7 +26,11 @@ public class ServletAcceptOrder extends HttpServlet {
         String partslistOrderId = request.getParameter("partslistOrderId");
         OrderMapper orderMapper = new OrderMapper(connectionPool);
 
-        orderMapper.acceptOrder(Integer.parseInt(partslistOrderId));
+        try {
+            orderMapper.acceptOrder(Integer.parseInt(partslistOrderId));
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+        }
 
         response.sendRedirect(request.getContextPath() + "/servletadminpanel");
     }
