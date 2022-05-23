@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.jsp">
-                <img src="${pageContext.request.contextPath}/images/Screenshot 2022-05-12 at 11.56.11.png" width="1250"
+                <img src="${pageContext.request.contextPath}/images/Screenshot 2022-05-12 at 11.56.11.png" width="1300"
                      height="125"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -92,35 +92,37 @@
     <jsp:doBody/>
 </div>
 
+
 <!-- Footer -->
-<div class="container mt-3">
-    <hr/>
-    <div class="row mt-4">
-        <div class="col">
-            <p><strong>Kontakt</strong></p>
-            <p>Johannes Fog A/S
-                <br>
-                Firskovvej 20
-                <br>
-                2800 Lyngby
-                <br>
-                45 87 10 01
-                <br>
-                info@johannesfog.dk</p>
-        </div>
-        <div class="col">
-            <jsp:invoke fragment="footer"/>
-            <br/>
-            <p>&copy; 2022 Cphbusiness</p>
-        </div>
-        <div class="col">
-            Datamatikeruddannelsen<br/>
-            2. semester forår 2022
+<div class="panel-footer">
+    <div class="container mt-3">
+        <hr/>
+        <div class="row mt-4">
+            <div class="col">
+                <p><strong>Kontakt</strong></p>
+                <p>Johannes Fog A/S
+                    <br>
+                    Firskovvej 20
+                    <br>
+                    2800 Lyngby
+                    <br>
+                    45 87 10 01
+                    <br>
+                    info@johannesfog.dk</p>
+            </div>
+            <div class="col">
+                <jsp:invoke fragment="footer"/>
+                <br/>
+                <p>&copy; 2022 Cphbusiness</p>
+            </div>
+            <div class="col">
+                Datamatikeruddannelsen<br/>
+                2. semester forår 2022
+            </div>
         </div>
     </div>
 </div>
-</div>
-
+</header>
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
