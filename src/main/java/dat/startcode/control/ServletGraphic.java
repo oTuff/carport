@@ -17,6 +17,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 @WebServlet(name = "ServletGraphic", value = "/ServletGraphic")
@@ -36,6 +37,11 @@ public class ServletGraphic extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+
         // Opret ordre
         int carportWidth = Integer.parseInt(request.getParameter("carportWidth"));
         int carportLength = Integer.parseInt(request.getParameter("carportLength"));
@@ -93,6 +99,7 @@ public class ServletGraphic extends HttpServlet {
 
         request.setAttribute("svgdrawing", arrowSvg.toString());
         String address = request.getParameter("address");
+        System.out.println(address);
         request.setAttribute("order", order);
 
         //Insert into database

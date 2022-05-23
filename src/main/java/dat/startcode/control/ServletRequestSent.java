@@ -22,6 +22,8 @@ public class ServletRequestSent extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         Order order = (Order) request.getSession().getAttribute("order");
         OrderMapper orderMapper = new OrderMapper(connectionPool);
         try {
