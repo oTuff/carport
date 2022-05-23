@@ -9,6 +9,13 @@ public class Product {
     private String unit;
     private int unitId;
 
+    public Product(int productId, String name, int price, String unit) {
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+        this.unit = unit;
+    }
+
     public Product(String name, int price, String unit) {
         this.name = name;
         this.price = price;

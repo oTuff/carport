@@ -24,16 +24,17 @@ public class ProductMapper implements IProductMapper {
         Logger.getLogger("web").log(Level.INFO, "");
         ArrayList<Product> products = new ArrayList<>();
 
-        String sql = "SELECT p.product_name, p.product_price, u.unit_name FROM carport.product p INNER JOIN carport.unit u ON p.unit_id";
+        String sql = "SELECT p.product_id, p.product_name, p.product_price, u.unit_name FROM carport.product p INNER JOIN carport.unit u ON p.unit_id=u.unit_id ORDER BY product_id;";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
+                    int id = rs.getInt("product_id");
                     String name = rs.getString("product_name");
                     int price = rs.getInt("product_price");
                     String unitName = rs.getString("unit_name");
-                    products.add(new Product(name, price, unitName));
+                    products.add(new Product(id, name, price, unitName));
                 }
             }
         } catch (SQLException ex) {

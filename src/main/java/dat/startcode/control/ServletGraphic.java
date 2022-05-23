@@ -3,13 +3,11 @@ package dat.startcode.control;
 import com.mysql.cj.Session;
 import dat.startcode.model.config.ApplicationStart;
 import dat.startcode.model.entities.Order;
+import dat.startcode.model.entities.PartsListLine;
 import dat.startcode.model.entities.Product;
 import dat.startcode.model.entities.User;
 import dat.startcode.model.exceptions.DatabaseException;
-import dat.startcode.model.persistence.ConnectionPool;
-import dat.startcode.model.persistence.OrderMapper;
-import dat.startcode.model.persistence.ProductMapper;
-import dat.startcode.model.persistence.UserMapper;
+import dat.startcode.model.persistence.*;
 import dat.startcode.model.services.Calculator;
 import dat.startcode.model.services.SVG;
 
@@ -103,8 +101,19 @@ public class ServletGraphic extends HttpServlet {
         request.setAttribute("order", order);
 
         //Insert into database
-        OrderMapper orderMapper = new OrderMapper(connectionPool);
-
+//        OrderMapper orderMapper = new OrderMapper(connectionPool);
+//        PartsListLineMapper partsListLineMapper = new PartsListLineMapper(connectionPool);
+//
+//        orderMapper.insertOrder(order);
+//        order.setPartslistOrderId(1);
+//
+//        for (PartsListLine p : order.getPartsListLines()) {
+//            try {
+//                partsListLineMapper.createPartsListLine(order,p);
+//            } catch (DatabaseException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
         UserMapper userMapper = new UserMapper(connectionPool);
         try {
@@ -113,6 +122,7 @@ public class ServletGraphic extends HttpServlet {
                 //int String email, int width, int length, int orderPrice, int shedId, boolean accepted
                 Order orderToInsert = new Order(0, userSession.getEmail(), carportWidth, carportLength, order.getOrderPrice(), 0, false);
 
+                orderToInsert.setPartsListLines(order.getPartsListLines());
                 HttpSession session = request.getSession();
                 session.setAttribute("order", orderToInsert);
 
