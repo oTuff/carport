@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -80,17 +81,19 @@ class OrderMapperTest extends HttpServlet {
 
     @Test
     void retrieveOrder() throws DatabaseException { // Remember to take an order in your own partslist_order table. (FIX)
-        assertEquals(new Order(1, "b@b.dk", 600, 720, 10000, 0, true), orderMapper.retrieveOrder(1));
+        List<Order> orderList = new ArrayList<>();
+        orderList.add(new Order(1, "a@a.dk", 420, 450, 14996, 0, true));
+        assertEquals(orderList, orderMapper.retrieveOrder(1));
     }
 
     @Test
     void acceptOrder() throws DatabaseException {
-
+        assertEquals(true, orderMapper.acceptOrder(1));
     }
 
     @Test
     void deleteOrder() throws DatabaseException {
-
+        assertEquals(true, orderMapper.deleteOrder(1));
     }
 }
 

@@ -131,12 +131,13 @@ public class OrderMapper implements IOrderMapper {
     }
 
     @Override
-    public void acceptOrder(int partslistOrderId) throws DatabaseException {
+    public boolean acceptOrder(int partslistOrderId) throws DatabaseException {
         String sql = "UPDATE partslist_order SET accepted = 1 WHERE partslist_order_id = " + partslistOrderId;
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 Statement stmt = connection.createStatement();
                 stmt.executeUpdate(sql);
+                return true;
             }
         } catch (SQLException ex) {
             try {
@@ -145,14 +146,16 @@ public class OrderMapper implements IOrderMapper {
                 e.printStackTrace();
             }
         }
+        return false;
     }
 
-    public void deleteOrder(int partslistOrderId) throws DatabaseException {
+    public boolean deleteOrder(int partslistOrderId) throws DatabaseException {
         String sql = "DELETE FROM partslist_order WHERE partslist_order_id=" + partslistOrderId;
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 Statement stmt = connection.createStatement();
                 stmt.execute(sql);
+                return true;
             }
         } catch (SQLException ex) {
             try {
@@ -161,5 +164,6 @@ public class OrderMapper implements IOrderMapper {
                 e.printStackTrace();
             }
         }
+        return false;
     }
 }
