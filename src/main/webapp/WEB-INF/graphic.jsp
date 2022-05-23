@@ -13,7 +13,9 @@
             </div>
             <br>
             <div class="mx-auto text-center">
+
                 <h1><fmt:formatNumber type = "number" maxFractionDigits="3" value="${requestScope.order.orderPrice}" />kr</h1>
+
                 <br>
                 <p><strong>Skitse</strong></p>
                 ${requestScope.svgdrawing}
