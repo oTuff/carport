@@ -21,7 +21,7 @@
                 ${requestScope.svgdrawing}
 
                 <br>
-                <form action="${pageContext.request.contextPath}/ServletRequestSent" method="get">
+                <form action="${pageContext.request.contextPath}/servletrequestsent" method="get">
                     <a href="">
                         <button class="btn btn-primary mb-2">Send forespørgsel</button>
                     </a>

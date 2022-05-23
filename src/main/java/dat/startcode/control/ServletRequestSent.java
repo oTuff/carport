@@ -13,7 +13,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "ServletRequestSent", value = "/ServletRequestSent")
+@WebServlet(name = "ServletRequestSent", value = "/servletrequestsent")
 public class ServletRequestSent extends HttpServlet {
     private ConnectionPool connectionPool;
 

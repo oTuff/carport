@@ -20,7 +20,7 @@
                 <div class="dropdown">
                     <div id="myDropdown" class="dropdown-content">
 
-                        <form action="${pageContext.request.contextPath}/ServletGraphic" method="post">
+                        <form action="${pageContext.request.contextPath}/servletgraphic" method="post">
                             <div class="w3-border mx-auto" style="width:50%;">
                                 <div class="w3-blue text-center" style="height:24px;width:33%;">1/3</div>
                             </div>
