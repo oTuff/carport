@@ -21,6 +21,9 @@ public class ServletCreateUser extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String email = request.getParameter("email");
         String fullName = request.getParameter("fullname");
         String password = request.getParameter("password");
