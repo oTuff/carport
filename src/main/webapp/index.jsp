@@ -151,45 +151,8 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <br>
-
-            <label for="address">Leveringsadresse</label>
-            <input type="text" class="form-control" disabled value="${sessionScope.user.address}" placeholder="Adresse"
-                   id="address" name="address" required>
-            <input type="checkbox" onclick="letUserChangeAddress()" id="addressCheckbox">
-            <label for="addressCheckbox">Levering til anden adresse</label>
-            <br>
-            <br>
-
-
-            <c:if test="${sessionScope.user != null}">
-                <button type="submit" class="btn btn-primary" disabled="true" value="Næste" style="width:25%; font-weight: bold;">
-                    </c:if>
-            <c:if test="${sessionScope.user == null}">
-                <button name="næstelogind" id="næstelogind" value="submit" style="width:25%; font-weight: bold" formaction="login.jsp">
-                    Log ind
-                </button>
-
-            </c:if>
-
-            <c:if test="${sessionScope.user != null}">
-                <button name="næste" id="næste" value="submit" style="width:25%; font-weight: bold">
-                    Næste
-                </button>
-            </c:if>
-
         </form>
 
-        <script>
-            function hideSkurForm() {
-                var checkBox = document.getElementById("skurCheckbox");
-                var text = document.getElementById("skur");
-                if (checkBox.checked == true) {
-                    text.style.display = "block";
-                } else {
-                    text.style.display = "none";
-=======
             <script>
                 function hideSkurForm() {
                     var checkBox = document.getElementById("skurCheckbox");
@@ -199,7 +162,6 @@
                     } else {
                         text.style.display = "none";
                     }
->>>>>>> be79fb7956901ff4f769c50eb0e980231a0323e7
                 }
 
                 function letUserChangeAddress() {

@@ -47,12 +47,12 @@ h4 {
 
 h1 {
     text-align: center;
-    color: whitesmoke;
+    /*color: whitesmoke;*/
 }
 
 h4 {
     text-align: center;
-    color: whitesmoke;
+    /*color: whitesmoke;*/
 
 }
 
@@ -89,7 +89,6 @@ label {
     margin-bottom: 5px;
     margin-top: 10px;
     font-size: 18px;
-    color: azure;
 }
 
 
