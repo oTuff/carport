@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.jsp">
-                <img src="${pageContext.request.contextPath}/images/Screenshot 2022-05-12 at 11.56.11.png" width="1250"
+                <img src="${pageContext.request.contextPath}/images/Screenshot 2022-05-12 at 11.56.11.png" width="1300"
                      height="125"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -41,78 +41,6 @@
         </div>
     </nav>
 </header>
-
-<%--<header>--%>
-<%--    <nav class="navbar navbar-expand-md navbar-dark bg-dark">--%>
-<%--        <div class="container">--%>
-<%--            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"--%>
-<%--                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">--%>
-<%--                <span class="navbar-toggler-icon"></span>--%>
-<%--            </button>--%>
-
-<%--            &lt;%&ndash;        Left nav side&ndash;%&gt;--%>
-<%--            <div class="collapse navbar-collapse w-100 order-1 order-md-0 dual-collapse2" id="navbarNavAltMarkup">--%>
-<%--                <ul class="navbar-nav mr-auto">--%>
-<%--                    <li class="nav-item active">--%>
-<%--                        <c:if test="${sessionScope.user.role == 'user' }">--%>
-<%--                            <a class="nav-link" href="${pageContext.request.contextPath}/servletmyorders">| MINE ORDRE--%>
-<%--                                |</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <c:if test="${sessionScope.user.role == 'admin' }">--%>
-<%--                            <a class="nav-link" href="${pageContext.request.contextPath}/servletadminpanel">|--%>
-<%--                                ADMINPANEL</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <c:if test="${sessionScope.user.role == 'admin' }">--%>
-<%--                            <a class="nav-link" href="${pageContext.request.contextPath}/servletadminproducts">|--%>
-<%--                                PRODUKTLISTE |</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <c:if test="${sessionScope.user.role == 'admin' }">--%>
-<%--                            <a class="nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT--%>
-<%--                                |</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
-<%--            </div>--%>
-
-<%--            &lt;%&ndash;            Middle nav email&ndash;%&gt;--%>
-<%--            <div class="mx-auto order-0">--%>
-<%--                <li class="nav-item active">--%>
-<%--                    <c:if test="${sessionScope.user != null }">--%>
-<%--                        <a class="navbar-brand mx-auto">${sessionScope.user.email}</a>--%>
-<%--                    </c:if>--%>
-<%--                </li>--%>
-<%--            </div>--%>
-
-<%--            &lt;%&ndash;        Right nav side&ndash;%&gt;--%>
-<%--            <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">--%>
-<%--                <ul class="navbar-nav ml-auto">--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">| HJEM |</a>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item active">--%>
-<%--                        <c:if test="${sessionScope.user == null }">--%>
-<%--                            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND--%>
-<%--                                |</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <c:if test="${sessionScope.user != null }">--%>
-<%--                            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">LOG UD--%>
-<%--                                |</a>--%>
-<%--                        </c:if>--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </nav>--%>
-<%--</header>--%>
-
 
 <header>
     <nav class="navbar navbar-expand-md navbar-light bg-light" rel="stylesheet">
@@ -165,35 +93,37 @@
     <jsp:doBody/>
 </div>
 
+
 <!-- Footer -->
-<div class="container mt-3">
-    <hr/>
-    <div class="row mt-4">
-        <div class="col">
-            <p><strong>Kontakt</strong></p>
-            <p>Johannes Fog A/S
-                <br>
-                Firskovvej 20
-                <br>
-                2800 Lyngby
-                <br>
-                45 87 10 01
-                <br>
-                info@johannesfog.dk</p>
-        </div>
-        <div class="col">
-            <jsp:invoke fragment="footer"/>
-            <br/>
-            <p>&copy; 2022 Cphbusiness</p>
-        </div>
-        <div class="col">
-            Datamatikeruddannelsen<br/>
-            2. semester forår 2022
+<div class="panel-footer">
+    <div class="container mt-3">
+        <hr/>
+        <div class="row mt-4">
+            <div class="col">
+                <p><strong>Kontakt</strong></p>
+                <p>Johannes Fog A/S
+                    <br>
+                    Firskovvej 20
+                    <br>
+                    2800 Lyngby
+                    <br>
+                    45 87 10 01
+                    <br>
+                    info@johannesfog.dk</p>
+            </div>
+            <div class="col">
+                <jsp:invoke fragment="footer"/>
+                <br/>
+                <p>&copy; 2022 Cphbusiness</p>
+            </div>
+            <div class="col">
+                Datamatikeruddannelsen<br/>
+                2. semester forår 2022
+            </div>
         </div>
     </div>
 </div>
-</div>
-
+</header>
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
