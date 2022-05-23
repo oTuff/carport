@@ -39,30 +39,30 @@ public class Calculator {
 
         //spærtræ
         calcRafterQuantity();
-        partsList.add(new PartsListLine(products.get(2), boardLength, boardQuantity, "Remme i sider, sadles ned i stolper"));
-        partsList.add(new PartsListLine(products.get(2), width, rafterQuantity, "Remme i sider, sadles ned i stolper"));
+        partsList.add(new PartsListLine(products.get(4), boardLength, boardQuantity, "Remme i sider, sadles ned i stolper"));
+        partsList.add(new PartsListLine(products.get(4), width, rafterQuantity, "Remme i sider, sadles ned i stolper"));
 
         //stolper
         calcPostsQuantity();
-        partsList.add(new PartsListLine(products.get(3), 300, postQuantity, "Stolper nedgraves 90 cm. i jord"));
+        partsList.add(new PartsListLine(products.get(5), 300, postQuantity, "Stolper nedgraves 90 cm. i jord"));
 
         //vandbræt
-        partsList.add(new PartsListLine(products.get(4), boardLength, boardQuantity, "vandbrædt på stern i sider"));
-        partsList.add(new PartsListLine(products.get(4), width, 1, "vandbrædt på stern i forende"));
+        partsList.add(new PartsListLine(products.get(6), boardLength, boardQuantity, "vandbrædt på stern i sider"));
+        partsList.add(new PartsListLine(products.get(6), width, 1, "vandbrædt på stern i forende"));
 
         //tagplader
         calcRoofing();
 
         //skruer mv.
-        partsList.add(new PartsListLine(products.get(7), 0, 2, "Til vindkryds på spær"));
-        partsList.add(new PartsListLine(products.get(8), 0, rafterQuantity, "Til montering af spær på rem"));
-        partsList.add(new PartsListLine(products.get(9), 0, rafterQuantity, "Til montering af spær på rem"));
-        partsList.add(new PartsListLine(products.get(10), 0, 1, "Til montering af stern&vandbrædt"));
-        partsList.add(new PartsListLine(products.get(11), 0, (int) Math.ceil(rafterQuantity / 5.0), "Til montering af universalbeslag + hulbånd"));
-        partsList.add(new PartsListLine(products.get(12), 0, (int) Math.ceil(postQuantity * 3.0), "Til montering af rem på stolper"));
-        partsList.add(new PartsListLine(products.get(13), 0, (int) Math.ceil(postQuantity * 2.0), "Til montering af rem på stolper"));
-        partsList.add(new PartsListLine(products.get(14), 0, 2, "Til montering af yderste beklæding"));
-        partsList.add(new PartsListLine(products.get(15), 0, 2, "Til montering af inderste beklædning"));
+        partsList.add(new PartsListLine(products.get(9), 0, 2, "Til vindkryds på spær"));
+        partsList.add(new PartsListLine(products.get(10), 0, rafterQuantity, "Til montering af spær på rem"));
+        partsList.add(new PartsListLine(products.get(11), 0, rafterQuantity, "Til montering af spær på rem"));
+        partsList.add(new PartsListLine(products.get(12), 0, 1, "Til montering af stern&vandbrædt"));
+        partsList.add(new PartsListLine(products.get(13), 0, (int) Math.ceil(rafterQuantity / 5.0), "Til montering af universalbeslag + hulbånd"));
+        partsList.add(new PartsListLine(products.get(14), 0, (int) Math.ceil(postQuantity * 3.0), "Til montering af rem på stolper"));
+        partsList.add(new PartsListLine(products.get(15), 0, (int) Math.ceil(postQuantity * 2.0), "Til montering af rem på stolper"));
+        partsList.add(new PartsListLine(products.get(16), 0, 2, "Til montering af yderste beklæding"));
+        partsList.add(new PartsListLine(products.get(17), 0, 2, "Til montering af inderste beklædning"));
 
         calcPrice();
 
@@ -91,12 +91,12 @@ public class Calculator {
         roofQuantity = (int) Math.ceil(width / 100.0);// roof is 120 wide and need to overlap with 20.
 
         //you will always get 600cm roof. even if you only need 350.
-        partsList.add(new PartsListLine(products.get(5), 600, roofQuantity, "tagplader monteres på spær"));
+        partsList.add(new PartsListLine(products.get(7), 600, roofQuantity, "tagplader monteres på spær"));
         if (length > 600) {
-            partsList.add(new PartsListLine(products.get(5), 360, roofQuantity, "tagplader monteres på spær"));
+            partsList.add(new PartsListLine(products.get(7), 360, roofQuantity, "tagplader monteres på spær"));
             roofQuantity = roofQuantity * 2;
         }
-        partsList.add(new PartsListLine(products.get(6), 0, (int) Math.ceil(roofQuantity / 4.0), "Skruer til tagplader"));
+        partsList.add(new PartsListLine(products.get(8), 0, (int) Math.ceil(roofQuantity / 4.0), "Skruer til tagplader"));
     }
 
     public int calcLinePrice(PartsListLine l) {//calculates the price by multiplying the product price with quantity and the length(partsListLine has a length)

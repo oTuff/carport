@@ -164,7 +164,6 @@ CREATE TABLE IF NOT EXISTS `carport`.`partslist_line`
     `partslist_order_id` INT          NOT NULL,
     `product_length`     INT          NOT NULL,
     `quantity`           INT          NOT NULL,
-    `unit_id`            INT          NOT NULL,
     `parts_price`        INT          NOT NULL,
     `description`        VARCHAR(150) NOT NULL,
     INDEX `fk_partslist_line_product1_idx` (`product_id` ASC) VISIBLE,
