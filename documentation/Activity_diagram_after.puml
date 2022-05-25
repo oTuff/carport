@@ -1,2 +1,19 @@
 @startuml
+|kunde|
+start
+:gå til website;
+|#AntiqueWhite|website/program|
+:login;
+:udfyld kontakt formular og send forespørgsel;
+:visuel repræsentation af carport]
+|martin(admin)|
+:accepter forespørgsel;
+|kunde|
+:betaling;
+|website/program|
+:kvittering+stykliste]
+|kunde|
+:modtager stykliste;
+|kunde|
+:modtager carport;
 @enduml
