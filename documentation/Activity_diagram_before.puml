@@ -10,18 +10,17 @@ start
 |program|
 :indtast kundens carport data MANUELT!;
 :visuel repræsentation af carport]
+:stykliste]
+|martin|
+:kontakt kunde via tfl;
 |kunde|
-:modtager billeder og kort beskrivelse;
 :betaling;
 |program|
-:stykliste]
-fork
 |kunde|
 :modtager stykliste;
-
-|kunde|
 |martin|
 :gem ordre i database;
 :send kvittering;
-fork
+|kunde|
+:modtager carport;
 @enduml

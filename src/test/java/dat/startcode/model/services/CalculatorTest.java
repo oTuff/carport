@@ -2,8 +2,6 @@ package dat.startcode.model.services;
 
 import dat.startcode.model.entities.Order;
 import dat.startcode.model.entities.Product;
-import dat.startcode.model.persistence.ConnectionPool;
-import dat.startcode.model.persistence.ProductMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,7 +24,7 @@ class CalculatorTest {
         calculator = new Calculator(order, products);
         calculator2 = new Calculator(order2, products);
 
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 20; i++) {
             products.add(new Product("product", i, "."));
         }
 
@@ -73,7 +71,7 @@ class CalculatorTest {
 
     @Test
     void calcPrice() {
-        Assertions.assertEquals(180, calculator.calcLinePrice(order.getPartsListLines().get(5)));
-        Assertions.assertEquals(14, calculator.calcLinePrice(order.getPartsListLines().get(12)));
+        Assertions.assertEquals(360, calculator.calcLinePrice(order.getPartsListLines().get(5)));
+        Assertions.assertEquals(18, calculator.calcLinePrice(order.getPartsListLines().get(12)));
     }
 }

@@ -2,13 +2,13 @@
 object product{
 name
 price
+unit
 }
 
-object partslist{
+object partsListLine{
 length
 price
 quantity
-unit
 description
 }
 
@@ -28,7 +28,7 @@ balance
 }
 
 order "*" o- "1" user
-partslist "1" -o "1" order
-product "*" -o "1" partslist
+partsListLine "*" -o "1" order
+product "*" -o "1" partsListLine
 
 @enduml

@@ -1,4 +1,4 @@
-package dat.startcode.persistence;
+package dat.startcode.model.persistence;
 
 import dat.startcode.model.entities.Product;
 import dat.startcode.model.exceptions.DatabaseException;
