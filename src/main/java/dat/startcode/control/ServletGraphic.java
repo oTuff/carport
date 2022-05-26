@@ -100,20 +100,6 @@ public class ServletGraphic extends HttpServlet {
         System.out.println(address);
         request.setAttribute("order", order);
 
-        //Insert into database
-//        OrderMapper orderMapper = new OrderMapper(connectionPool);
-//        PartsListLineMapper partsListLineMapper = new PartsListLineMapper(connectionPool);
-//
-//        orderMapper.insertOrder(order);
-//        order.setPartslistOrderId(1);
-//
-//        for (PartsListLine p : order.getPartsListLines()) {
-//            try {
-//                partsListLineMapper.createPartsListLine(order,p);
-//            } catch (DatabaseException e) {
-//                e.printStackTrace();
-//            }
-//        }
 
         UserMapper userMapper = new UserMapper(connectionPool);
         try {
