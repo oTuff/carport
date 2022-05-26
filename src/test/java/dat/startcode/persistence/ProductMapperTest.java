@@ -44,9 +44,9 @@ class ProductMapperTest extends HttpServlet {
                         "(2, 'Pakke')," +
                         "(3, 'Rulle')");
                 stmt.execute("INSERT INTO `product` VALUES " +        // Inserting a few values into member
-                        "(1, '25x200 mm trykimp Brædt', 500, 1)," +
-                        "(2, '25x125mm trykimp Brædt', 350, 1)," +
-                        "(3, '38x73 mm Lægte ubh', 600, 1)");
+                        "(1, '25x200 mm trykimp Brædt', 100, 1)," +
+                        "(2, '25x125mm trykimp Brædt', 799, 1)," +
+                        "(3, '38x73 mm Lægte ubh', 20, 1)");
             }
         } catch (SQLException throwables) {
             fail("Database connection failed");
@@ -65,9 +65,9 @@ class ProductMapperTest extends HttpServlet {
     @Test
     void retrieveProduct() throws DatabaseException {
         List<Product> productsList = productMapper.retrieveAllProducts();
-        assertEquals(productsList.get(0), new Product(1, "25x200 mm trykimp Brædt", 500, 1));
-        assertEquals(productsList.get(1), new Product(2, "25x125mm trykimp Brædt", 350, 1));
-        assertEquals(productsList.get(2), new Product(3, "38x73 mm Lægte ubh", 600, 1));
+        assertEquals(productsList.get(0), new Product(1, "25x200 mm trykimp Brædt", 100, 1));
+        assertEquals(productsList.get(1), new Product(2, "50x500mm trykimp Brædt", 799, 1));
+        assertEquals(productsList.get(2), new Product(3, "38x73 mm Lægte ubh", 20, 1));
     }
 
     @Test
@@ -78,7 +78,7 @@ class ProductMapperTest extends HttpServlet {
 
     @Test
     void getProductId() throws DatabaseException {         // Testing if the product contains the right member ID
-        assertEquals(new Product(2, "25x125mm trykimp Brædt", 350, 1), productMapper.getProductId(2));
+        assertEquals(new Product(2, "50x500mm trykimp Brædt", 799, 1), productMapper.getProductId(2));
     }
 
     @Test
