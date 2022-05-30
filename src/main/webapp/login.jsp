@@ -25,9 +25,9 @@
                     <input type="password" class="form-control" required placeholder="Kode" id="password" name="password"/>
                     <input type="submit" class="btn btn-primary btn-block mb-4" value="Log ind"/>
                     <br>
-                    <a href="createuser.jsp" class="opretBruger">Opret bruger</a>
+                    <a href="createuser.jsp" class="opretBruger" style="color: whitesmoke; font-weight: bold">Opret bruger</a>
                     <br>
-                    <a href="forgotpassword.jsp" class="glemtkodeord">glemt kodeord?</a>
+                    <a href="forgotpassword.jsp" class="glemtkodeord" style="color: whitesmoke; font-weight: bold" >glemt kodeord?</a>
                 </form>
             </div>
         </div>
