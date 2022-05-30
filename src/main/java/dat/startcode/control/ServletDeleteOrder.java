@@ -28,11 +28,14 @@ public class ServletDeleteOrder extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String partslistOrderId = request.getParameter("partslistOrderId");
         OrderMapper orderMapper = new OrderMapper(connectionPool);
+
         try {
             orderMapper.deleteOrder(Integer.parseInt(partslistOrderId));
+            System.out.println(orderMapper.deleteOrder(Integer.parseInt(partslistOrderId)));
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
+
         response.sendRedirect(request.getContextPath() + "/servletadminpanel");
     }
 }

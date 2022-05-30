@@ -137,16 +137,16 @@ public class OrderMapper implements IOrderMapper {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 Statement stmt = connection.createStatement();
                 stmt.executeUpdate(sql);
-                return true;
             }
         } catch (SQLException ex) {
             try {
                 throw new DatabaseException(ex, "Could not insert update partslist_order_id in database");
             } catch (DatabaseException e) {
                 e.printStackTrace();
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public boolean deleteOrder(int partslistOrderId) throws DatabaseException {
@@ -154,16 +154,14 @@ public class OrderMapper implements IOrderMapper {
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 Statement stmt = connection.createStatement();
+                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
                 stmt.execute(sql);
-                return true;
+                stmt.execute("SET FOREIGN_KEY_CHECKS=1");
             }
         } catch (SQLException ex) {
-            try {
-                throw new DatabaseException(ex, "Could not insert delete partslist_order_id in database");
-            } catch (DatabaseException e) {
-                e.printStackTrace();
-            }
+            System.out.println("Couldnt delete partslisterorder");
+            return false;
         }
-        return false;
+        return true;
     }
 }
