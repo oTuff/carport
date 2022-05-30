@@ -7,7 +7,7 @@
 
     <jsp:body>
         <div class="thirdPage mx-auto" style="width:80%;">
-            <div class="w3-border mx-auto" style="width:50%;">
+            <div class="w3-border mx-auto" style="width:25%;">
                 <div class="w3-blue text-center" style="height:24px;width:100%;">3/3</div>
             </div>
             <br>

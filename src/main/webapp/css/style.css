@@ -15,8 +15,18 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+    color: whitesmoke;
+}
+
 h4 {
     text-align: center;
+}
+
+h5 {
+    text-align: center;
+    color: whitesmoke;
 }
 
 .navbar-brand {
@@ -40,63 +50,68 @@ h4 {
 
 /* Frontpage design */
 .frontpage {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(../images/johannesfogbg.png);
-    background-size: cover;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(../images/fogbg2.png);
+    background-size: 1500px 800px;
     background-position: center;
-}
-
-h1 {
-    text-align: center;
-    /*color: whitesmoke;*/
-}
-
-h4 {
-    text-align: center;
-    /*color: whitesmoke;*/
-
+    background-repeat: no-repeat;
 }
 
 .booking-form-box {
+    max-width: 350px;
     position: relative;
     bottom: 100px;
-    max-width: 450px;
-    border: 1px solid #3e84bb;
-    box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ced4da;
     margin: 10% auto 0;
-    border-radius: 25px;
-}
-
-
-.dropdown {
-    position: relative;
-    display: block;
-
 }
 
 .dropdown-content {
     position: center;
     text-align: left;
-    background-color: #377ea4;
     min-width: 160px;
-    box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.5);
     padding: 0 20px 20px;
-    border-radius: 20px;
 
 }
-
 
 label {
     margin-bottom: 5px;
     margin-top: 10px;
     font-size: 18px;
+    color: whitesmoke;
 }
 
-
-select {
-    width: 175px;
+/* Login page */
+.login {
+    position: relative;
+    max-width: 550px;
+    min-height: 300px;
+    box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.5);
+    margin: 1% auto 0;
+    border-radius: 25px;
+    background-image: url(../images/foglogin.png);
+    background-size: cover;
 }
 
+.form {
+    max-width: 400px;
+}
 
+input {
+    margin-bottom: 4px;
+}
+
+.form-control {
+    border-radius: 0px;
+    text-transform: none !important;
+}
+
+.form-control:focus {
+    box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.5);
+
+}
+
+.opretBruger {
+    text-decoration-line: none;
+}
 
 /* Receipt design */
 .receiptdesign {
@@ -115,7 +130,7 @@ select {
 }
 
 #proceedbt {
-    background-color: #c4bba3;
+    background-color: #f6e4b2;
     min-height: 50px;
     width: 225px;
     font-weight: bold;
@@ -123,3 +138,14 @@ select {
     border-radius: 25px;
 }
 
+/* Product Edit Design */
+.productedit {
+    position: relative;
+    box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.5);
+    margin: 1% auto 0;
+    border-radius: 25px;
+    background-image: url(../images/blue.png);
+    background-size: 1500px 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+}

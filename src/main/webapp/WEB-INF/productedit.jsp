@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@page errorPage="../error.jsp" isErrorPage="false" %>
 
+<div class="productedit">
 <t:pagetemplate>
     <jsp:attribute name="header">
               Rediger Produkt
@@ -27,3 +28,4 @@
         </form>
     </jsp:body>
 </t:pagetemplate>
+</div>

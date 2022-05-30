@@ -54,18 +54,16 @@
                 <%--LEFT NAV SIDE--%>
                 <div class="navbar-nav mr-auto">
                     <c:if test="${sessionScope.user.role == 'user' }">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/servletmyorders">| MINE ORDRE |</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/servletmyorders">| MINE ORDRE</a>
                     </c:if>
                     <c:if test="${sessionScope.user.role == 'admin' }">
                         <a class="nav-link" href="${pageContext.request.contextPath}/servletadminpanel">| ADMINPANEL</a>
                     </c:if>
                     <c:if test="${sessionScope.user.role == 'admin' }">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/servletadminproducts">|
-                            PRODUKTLISTE |</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/servletadminproducts">| PRODUKTLISTE</a>
                     </c:if>
                     <c:if test="${sessionScope.user.role == 'admin' }">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/servletuseroverview">BRUGEROVERSIGT
-                            |</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/servletuseroverview">| BRUGEROVERSIGT</a>
                     </c:if>
                 </div>
             </div>
@@ -75,13 +73,12 @@
                 <c:if test="${sessionScope.user != null }">
                     <a class="nav-item nav-link">${sessionScope.user.email}</a>
                 </c:if>
-                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">| HJEM |</a>
+                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">| HJEM</a>
                 <c:if test="${sessionScope.user == null }">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">LOG IND |</a>
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">| LOG IND</a>
                 </c:if>
                 <c:if test="${sessionScope.user != null }">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">LOG UD
-                        |</a>
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/servletlogout">| LOG UD</a>
                 </c:if>
             </div>
         </div>

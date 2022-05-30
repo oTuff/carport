@@ -13,15 +13,15 @@
 
         <jsp:body>
 
-            <h1>Johannes Fog Carporte</h1>
-            <h4>Skræddersy din helt eget carport</h4>
+            <h2>Johannes Fog Carporte</h2>
+            <h5>Skræddersy din helt eget carport</h5>
 
             <div class="booking-form-box">
                 <div class="dropdown">
                     <div id="myDropdown" class="dropdown-content">
 
                         <form action="${pageContext.request.contextPath}/servletgraphic" method="post">
-                            <div class="w3-border mx-auto" style="width:50%;">
+                            <div class="w3-border mx-auto" style="width:75%;">
                                 <div class="w3-blue text-center" style="height:24px;width:33%;">1/3</div>
                             </div>
                             <label for="carportWidth">Carport bredde:</label>
@@ -141,8 +141,8 @@
                             </c:if>
 
                             <c:if test="${sessionScope.user != null}">
-                                <button name="næste" id="næste" value="submit" style="width:25%; font-weight: bold">
-                                    Næste
+                                <button name="næste" id="næste" value="submit" style="width:100%; height: 5%; font-weight: bold">
+                                    NÆSTE
                                 </button>
                             </c:if>
 

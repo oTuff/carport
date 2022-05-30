@@ -8,7 +8,7 @@
 
     <jsp:body>
         <div class="secondPage mx-auto" style="width:80%;">
-            <div class="w3-border mx-auto" style="width:50%;">
+            <div class="w3-border mx-auto" style="width:25%;">
                 <div class="w3-blue text-center" style="height:24px;width:67%;">2/3</div>
             </div>
             <br>

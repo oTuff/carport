@@ -1,9 +1,7 @@
 package dat.startcode.control;
 
-import com.mysql.cj.Session;
 import dat.startcode.model.config.ApplicationStart;
 import dat.startcode.model.entities.Order;
-import dat.startcode.model.entities.PartsListLine;
 import dat.startcode.model.entities.Product;
 import dat.startcode.model.entities.User;
 import dat.startcode.model.exceptions.DatabaseException;
@@ -15,7 +13,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 @WebServlet(name = "ServletGraphic", value = "/servletgraphic")

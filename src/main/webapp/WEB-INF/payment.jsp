@@ -89,7 +89,7 @@
                     </table>
                 </form>
             </div>
-            <div>stykliste</div>
+            <div>STYKLISTE:</div>
             <table class="table table-striped">
                 <thead>
                 <tr>
