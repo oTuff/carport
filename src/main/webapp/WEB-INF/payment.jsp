@@ -42,9 +42,7 @@
                                 <td>${order.length}</td>
                                 <td>${order.orderPrice}</td>
                                 <td>${order.shedId}</td>
-                                <td>
-                                        <%--HUSK///<td>${sessionScope.user.address}</td>--%>
-                                </td>
+                                <td>${sessionScope.user.address}</td>
                                 <td>
                                     <jsp:useBean id="date" class="java.util.Date"/>
                                     <fmt:formatDate value="${date}" pattern="yyyy-MM-dd HH:mm"/>
