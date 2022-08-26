@@ -3,7 +3,6 @@ package dat.startcode.model.services;
 import dat.startcode.model.entities.Order;
 import dat.startcode.model.entities.PartsListLine;
 import dat.startcode.model.entities.Product;
-
 import java.util.ArrayList;
 
 public class Calculator {

@@ -59,7 +59,9 @@ public class PartsListLineMapper {
     public void createPartsListLine(Order order, PartsListLine partsListLine) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
 
-        String sql = "insert into carport.partslist_line (product_id, partslist_order_id, product_length, quantity, parts_price, `description`) VALUES (?,?,?,?,?,?)";
+        String sql = "insert into carport.partslist_line " +
+                "(product_id, partslist_order_id, product_length, quantity, parts_price, `description`)" +
+                " VALUES (?,?,?,?,?,?)";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, partsListLine.getProduct().getProductId());

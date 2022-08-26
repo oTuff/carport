@@ -53,6 +53,8 @@ public class ServletGraphic extends HttpServlet {
         Calculator calc = new Calculator(order, products);
         calc.calcPartsList();
 
+
+
         int rafterQuantity = order.getPartsListLines().get(5).getQuantity();
         int postQuantity = order.getPartsListLines().get(6).getQuantity();
 
@@ -60,7 +62,6 @@ public class ServletGraphic extends HttpServlet {
         SVG svg = new SVG(100, 50, "0 0 800 600", 600, 600);
 
         SVG arrowSvg = new SVG(carportLength, carportWidth, "0 0 800 600", 600, 600);
-
 
         // Alle spær
         svg.addRect(0, 15, 4, carportLength);
@@ -71,12 +72,10 @@ public class ServletGraphic extends HttpServlet {
 
         // stolper
         for (int y = 0; y < 2; y++) {
-
             // Stolper i hver hjørne
             for (int x = 0; x < 2; x++) {
                 svg.addRect(2 + (carportLength - 12) * x, (carportWidth - 30) * y + 12, 12, 12);
             }
-
             // Stolper i midten
             if (postQuantity > 4) {
                 svg.addRect(carportLength / 2, (carportWidth - 30) * y + 12, 12, 12);
